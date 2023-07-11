@@ -4,7 +4,11 @@
 body {
     font-family:'Poppins','Source Sans Pro','Encode Sans','Arial','Roboto','Open Sans', sans-serif;
     color: var(--color-white);
-    background-color: var(--color-black);
+    background-color: var(--color-white);
+
+    /*display: flex;
+    flex-flow: column nowrap;
+    align-items: center;*/
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -24,14 +28,14 @@ body {
 --------------------------------------------------------------*/
 #header{
   display:flex;
-  flex-flow: row nowrap;
-  justify-content:space-between;
-  
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner{
   display:flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content:center;
   align-items: center;
 
@@ -42,16 +46,19 @@ body {
   display:flex;
   flex-flow: row nowrap;
   justify-content:space-between;
+  align-items: center;
 
   background-color: green;
   margin-bottom: 10px;
 }
 
 .infoGame{
-   display:flex;
+  display:flex;
   flex-flow: column nowrap;
   justify-content:center;
+  align-items: center;
 
+  width: 30%;
 
   background-color: yellow;
   margin-top: 10px;
@@ -62,17 +69,45 @@ body {
   flex-flow: column nowrap;
   justify-content:center;
 
+  width: 30%;
+
   background-color: purple;
   margin-bottom: 10px;
 }
 
-#boxGame{
-  position: fixed;
+
+/*--------------------------------------------------------------
+# newRecord
+--------------------------------------------------------------*/
+#newRecord{
+  display: none;
+}
+
+
+
+/*--------------------------------------------------------------
+# boxGame
+--------------------------------------------------------------*/
+#alingBox{
   display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#boxGame{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  
+
+  /* position: fixed;
+  
 
   transform: translate(-50%, -50%);   /*centro el cuadro*/
-  left:50%;
-  top:50%;
+  /*left:50%;
+  top:50%; */
 
   width: 60vw;
   height: 60vw;
@@ -148,11 +183,13 @@ body {
 }
 
 .btnStartBckGrnd{
+  
+  display:flex;
   position: absolute;
 
-  transform: translate(-50%, -50%);  /*para alinear el logo que voy a agregar*/
-  left:50%;
-  top:50%;
+  /*transform: translate(-50%, -50%); */  /*para alinear el logo que voy a agregar*/
+  /* left:50%;
+  top:50%; */
 
   width: 20vw;
   height: 20vw;
@@ -165,11 +202,12 @@ body {
 }
 
 .btnStart{
+  display:flex;
   position: absolute;
 
-  transform: translate(-50%, -50%);  /*para alinear el logo que voy a agregar*/
-  left:50%;
-  top:50%;
+  /*transform: translate(-50%, -50%);*/  /*para alinear el logo que voy a agregar*/
+  /*left:50%;
+  top:50%;*/
 
   width: 16vw;
   height: 16vw;
