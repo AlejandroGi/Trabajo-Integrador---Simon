@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>AG - Simon!</title>
+
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+    <header class="header">
+        <section class="banner">
+            <h1 id="title" class="title">El titulo</h1>
+        </section>
+        <section class="info">
+            <section class="infoGame">
+                <div>
+                    <span>
+                        Estado: 
+                    </span>
+                    <span id="status">
+                        XX  
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        Nivel:
+                    </span>
+                    <span id="lvl">
+                        X
+                    </span>
+                </div>
+            </section>
+            
+            <section class="infoScore">
+                <h2 class="topScore"></h2>
+                <ul>
+                    <li class="player" class="bestPlayer">Best Player</li>
+                    <li class="player"></li>
+                    <li class="player"></li>
+                    <li class="player"></li>
+                    <li class="player"></li>
+                </ul>
+            </section>
+        </section>
+    </header>
+
+
+    <section id="newRecord" class="newRecord">
+        <form id="inputsForm" action="" class="inputsForm">
+            <input type="text" name="userName" id="userName" placeholder="Usuario" required />
+            <button id="btnSave" class="btnSave"></button>        
+        </form>
+    </section>
+
+    <section id="boxGame" class="boxGame">
+        <section class="buttonsBox">
+            <div class= "btnSup">
+                <button id="btnYellow" class="btn btnGreen"></button>
+                <button id="btnRed" class="btn btnRed"></button>
+            </div>
+            <div class= "btnInf">
+                <button id="btnBlue" class="btn btnYellow"></button>
+                <button id="btnGreen" class="btn btnBlue"></button>
+            </div>
+            <div class= "btnStartBckGrnd">
+                <button id="btnStart" class="btn btnStart">START</button>
+            </div>
+            
+        </section>
+    </section>
+</body>
+</html>
+

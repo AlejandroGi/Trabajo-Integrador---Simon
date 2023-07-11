@@ -1,0 +1,182 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    font-family:'Poppins','Source Sans Pro','Encode Sans','Arial','Roboto','Open Sans', sans-serif;
+    color: var(--color-white);
+    background-color: var(--color-black);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    color: var(--color-primary-dark);
+  }
+  
+  
+  a {
+    text-decoration: none;
+    color: var(--color-primary-dark);
+    font-family: var(--font-secondary);
+  }
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header{
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content:space-between;
+  
+}
+
+.banner{
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content:center;
+  align-items: center;
+
+  background-color: blue;
+}
+
+.info{
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content:space-between;
+
+  background-color: green;
+  margin-bottom: 10px;
+}
+
+.infoGame{
+   display:flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+
+
+  background-color: yellow;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.infoScore{
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+
+  background-color: purple;
+  margin-bottom: 10px;
+}
+
+#boxGame{
+  position: fixed;
+  display: flex;
+
+  transform: translate(-50%, -50%);   /*centro el cuadro*/
+  left:50%;
+  top:50%;
+
+  width: 60vw;
+  height: 60vw;
+
+  max-width: 60vh;
+  max-height: 60vh;
+
+  border-radius: 50%;
+  background-color: var(--color-grey);
+  
+ /* border-style: outset;
+  border-color: var(--color-primary-light);
+  border-width: 4px;
+  border-radius: 50%;
+  box-shadow: 6px 4px 8px -2px;*/
+}
+.buttonsBox{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:center;
+
+}
+
+.btnSup{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items:flex-end;
+
+  margin-bottom: 1vw;
+  
+}
+.btnInf{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items:flex-start;
+
+  margin-top: 1vw;
+}
+
+.btn{
+  width: 22vw;
+  height: 22vw;
+  border-radius: 22vh 0 0 0; /*marca el corte del cuadrado*/
+  background-color: white;
+
+  max-width: 22vh;
+  max-height: 22vh;
+}
+
+.btnGreen{
+  background-color: green;
+  margin-right: 1vw;
+}
+
+.btnRed{
+  background-color: red;
+  border-radius: 0 22vh 0 0;
+  
+  margin-left: 1vw;
+}
+
+.btnYellow{
+  background-color: yellow;
+  border-radius: 0  0 0 22vh;
+  margin-right: 1vw;
+}
+
+.btn.btnBlue{
+  background-color: blue;
+  border-radius: 0  0 22vh 0;
+
+  margin-left: 1vw;
+}
+
+.btnStartBckGrnd{
+  position: absolute;
+
+  transform: translate(-50%, -50%);  /*para alinear el logo que voy a agregar*/
+  left:50%;
+  top:50%;
+
+  width: 20vw;
+  height: 20vw;
+
+  max-width: 20vh;
+  max-height: 20vh;
+
+  border-radius: 50%;
+  background-color:var(--color-grey);
+}
+
+.btnStart{
+  position: absolute;
+
+  transform: translate(-50%, -50%);  /*para alinear el logo que voy a agregar*/
+  left:50%;
+  top:50%;
+
+  width: 16vw;
+  height: 16vw;
+
+  max-width: 16vh;
+  max-height: 16vh;
+
+  border-radius: 50%;
+}
+
