@@ -4,16 +4,12 @@
 body {
     font-family:'Poppins','Source Sans Pro','Encode Sans','Arial','Roboto','Open Sans', sans-serif;
     color: var(--color-white);
-    background-color: var(--color-white);
-
-    /*display: flex;
-    flex-flow: column nowrap;
-    align-items: center;*/
+    background-color: var(--color-dark);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
-    color: var(--color-primary-dark);
+    color: var(--color-white);
   }
   
   
@@ -26,12 +22,13 @@ body {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-#header{
-  display:flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-}
+  #header{
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+  }
 
 .banner{
   display:flex;
@@ -39,7 +36,16 @@ body {
   justify-content:center;
   align-items: center;
 
-  background-color: blue;
+  background-color: var(--color-dark-light);
+
+  border-color: whitesmoke;
+  border-width: 5px;
+  border-style:dotted;
+}
+
+#title{
+  font-size: 2.3rem;
+  font-weight: 800;
 }
 
 .info{
@@ -48,33 +54,64 @@ body {
   justify-content:space-between;
   align-items: center;
 
-  background-color: green;
-  margin-bottom: 10px;
+  padding: 10px 15px;
+
+  font-size: 1.3rem;
+  font-weight: 800;
+  
+  background-color: var(--color-dark-light);
 }
 
 .infoGame{
   display:flex;
   flex-flow: column nowrap;
-  justify-content:center;
-  align-items: center;
-
-  width: 30%;
-
-  background-color: yellow;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  justify-content: center;
+  align-items: baseline;
 }
+
+
 .infoScore{
   display:flex;
   flex-flow: column nowrap;
-  justify-content:center;
-
-  width: 30%;
-
-  background-color: purple;
-  margin-bottom: 10px;
+  justify-content:baseline;
+  align-items: center;
 }
 
+.infoScore div{
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content:space-around;
+  align-items: center;
+
+  width: 45%;
+  margin-bottom: 5px;
+}
+
+.infoScore li{
+  display: inline;
+  padding: 0px 5px;
+}
+/*Si sobre tiempo agregar breakpoint*/
+
+.infoScore .bestPlayer{
+color:var(--color-white);
+
+border-style:double;
+border-color: var(--color-white);
+border-radius: 5px;
+border-width: 1px;
+
+background-color:#eeca00 ;
+
+box-shadow: 0px 0px 10px 2px #f7d000; /* desp.X, desp.Y, tamño. desenfoq, dispersion*/
+}
+
+#secondPlayer{
+color:#c5c3c3;
+}
+#thirdPlayer{
+color:#d07e26;
+}
 
 /*--------------------------------------------------------------
 # newRecord
@@ -88,11 +125,15 @@ body {
 /*--------------------------------------------------------------
 # boxGame
 --------------------------------------------------------------*/
+
 #alingBox{
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;   /* No tiene nada contra que centrar*/
+  align-items: center; 
+
+  margin-top: 5rem; /*Si, se puede mejorar, pero hay que hacer el js*/ 
+  /*Si utilizo medidas en base a REM, deberia acomodarse en todos los dispositivos.*/
 }
 
 #boxGame{
@@ -100,14 +141,6 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
 
-  
-
-  /* position: fixed;
-  
-
-  transform: translate(-50%, -50%);   /*centro el cuadro*/
-  /*left:50%;
-  top:50%; */
 
   width: 60vw;
   height: 60vw;
@@ -116,22 +149,24 @@ body {
   max-height: 60vh;
 
   border-radius: 50%;
-  background-color: var(--color-grey);
+  background-color: var(--color-black);
   
- /* border-style: outset;
-  border-color: var(--color-primary-light);
+ /* border-style:double;
+  border-color: var(--color-black);
   border-width: 4px;
   border-radius: 50%;
-  box-shadow: 6px 4px 8px -2px;*/
+  box-shadow: 4px 4px 4px 10px; */
+
 }
 .buttonsBox{
   display: flex;
   flex-flow: row wrap;
   justify-content:center;
+  align-items: center;
 
 }
 
-.btnSup{
+.blockBtnSup{
   display: flex;
   flex-flow: row nowrap;
   align-items:flex-end;
@@ -139,7 +174,7 @@ body {
   margin-bottom: 1vw;
   
 }
-.btnInf{
+.blockBtnInf{
   display: flex;
   flex-flow: row nowrap;
   align-items:flex-start;
@@ -150,7 +185,7 @@ body {
 .btn{
   width: 22vw;
   height: 22vw;
-  border-radius: 22vh 0 0 0; /*marca el corte del cuadrado*/
+  /*border-radius: 0 0 0 0;*/ /*marca el corte del cuadrado*/
   background-color: white;
 
   max-width: 22vh;
@@ -159,7 +194,12 @@ body {
 
 .btnGreen{
   background-color: green;
-  margin-right: 1vw;
+  border-radius: 0  0 22vh 0 ;
+
+  margin-left: 1vw;
+}
+.btnGlowGreen:active{
+  box-shadow:  0px 0px 30px 10px green ;
 }
 
 .btnRed{
@@ -168,28 +208,39 @@ body {
   
   margin-left: 1vw;
 }
+.btnGlowRed:active{
+  box-shadow:  0px 0px 30px 10px red ;
+}
 
 .btnYellow{
   background-color: yellow;
-  border-radius: 0  0 0 22vh;
+  border-radius: 22vh 0 0 0;
+
   margin-right: 1vw;
 }
-
-.btn.btnBlue{
-  background-color: blue;
-  border-radius: 0  0 22vh 0;
-
-  margin-left: 1vw;
+.btnGlowYellow:active{
+  box-shadow:  0px 0px 30px 10px yellow ;
 }
 
-.btnStartBckGrnd{
-  
-  display:flex;
-  position: absolute;
+.btnBlue{
+  background-color: blue;
+  border-radius: 0 0 0 22vh ;
 
-  /*transform: translate(-50%, -50%); */  /*para alinear el logo que voy a agregar*/
-  /* left:50%;
-  top:50%; */
+  margin-right: 1vw;
+}
+.btnGlowBlue:active{
+  box-shadow: 0px 0px 30px 10px blue ;
+}
+
+
+
+.btnGameBckGrnd{
+  position: absolute; /* Al hacer que el elemento se coloque respecto a su contenedor, 
+                          y el contenedor estar config para estar centrado, queda en el medio.*/
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   width: 20vw;
   height: 20vw;
@@ -198,16 +249,13 @@ body {
   max-height: 20vh;
 
   border-radius: 50%;
-  background-color:var(--color-grey);
+  background-color:var(--color-black);
 }
 
-.btnStart{
+.btnGame{
   display:flex;
-  position: absolute;
-
-  /*transform: translate(-50%, -50%);*/  /*para alinear el logo que voy a agregar*/
-  /*left:50%;
-  top:50%;*/
+  align-items: center;
+  justify-content: center;
 
   width: 16vw;
   height: 16vw;
@@ -215,6 +263,19 @@ body {
   max-width: 16vh;
   max-height: 16vh;
 
-  border-radius: 50%;
+  border-radius: 100%;
+  
+  background-color:#be04ec;
 }
 
+.btnGame:hover{
+  border-color: var(--color-white);
+  border-style:double;
+  border-width: 10px;
+
+  box-shadow: 0px 0px 17px 5px #b786f8;
+}
+
+.btnGame:active{
+  box-shadow: 0px 0px 200px 20px #b786f8;
+}

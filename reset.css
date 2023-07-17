@@ -7,7 +7,10 @@
 
     /* Colores */
     --color-white: #e0f1f2;
-    --color-grey: #0e0f14;
+
+    --color-dark-light: #140f2c;
+    --color-dark: #0e0f14;
+    
     --color-black: #000000;
     
     --color-links: #0ea2bd;

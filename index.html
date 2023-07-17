@@ -9,47 +9,50 @@
 
     <link rel="stylesheet" href="reset.css"/>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 </head>
 <body>
     <header class="header">
         <section class="banner">
-            <h1 id="title" class="title">El titulo</h1>
+            <h1 id="title" class="title">SIMON GAME</h1>
         </section>
         <section class="info">
             <section class="infoGame">
                 <div>
                     <span>
-                        Estado: 
+                        Status: 
                     </span>
                     <span id="status">
-                        XX  
+                        - 
                     </span>
                 </div>
                 <div>
                     <span>
-                        Nivel:
+                        Level:
                     </span>
                     <span id="lvl">
-                        X
+                        -
                     </span>
                 </div>
             </section>
             
             <section class="infoScore">
-                <h2 class="topScore"></h2>
-                <ul>
-                    <li class="player" class="bestPlayer">Best Player</li>
-                    <li class="player"></li>
-                    <li class="player"></li>
-                    <li class="player"></li>
-                    <li class="player"></li>
+                <div>
+                    <i class="fa fa-star"></i>
+                    <span>TOP 3</span>
+                    <i class="fa fa-star"></i>
+                </div>
+                <ul id="top3">
+                    <li id="bestPlayer" class="bestPlayer">Best Player</li>
+                    <li id="secondPlayer" class="secondPlayer">Second Player</li>
+                    <li id="thirdPlayer" class="thirdPlayer">Third Player</li>
                 </ul>
             </section>
         </section>
     </header>
 
-
+        
     <section id="newRecord" class="newRecord">
         <form id="inputsForm" action="" class="inputsForm">
             <input type="text" name="userName" id="userName" placeholder="Usuario" required />
@@ -60,20 +63,23 @@
     <section id="alingBox" clas="alingBox">
         <section id="boxGame" class="boxGame">
             <section class="buttonsBox">
-                <div class= "btnSup">
-                    <button id="btnYellow" class="btn btnGreen"></button>
-                    <button id="btnRed" class="btn btnRed"></button>
+                <div class= "blockBtnSup">
+                    <button id="btnYellow" class="btn btnYellow btnGlowYellow"></button>
+                    <button id="btnRed" class="btn btnRed btnGlowRed"></button>
                 </div>
-                <div class= "btnInf">
-                    <button id="btnBlue" class="btn btnYellow"></button>
-                    <button id="btnGreen" class="btn btnBlue"></button>
+                <div class= "blockBtnInf">
+                    <button id="btnBlue" class="btn btnBlue btnGlowBlue"></button>
+                    <button id="btnGreen" class="btn btnGreen btnGlowGreen"></button>
                 </div>
-                <div class= "btnStartBckGrnd">
-                    <button id="btnStart" class="btn btnStart">START</button>
+                <div class= "btnGameBckGrnd">
+                    <button id="btnGame" class="btn btnGame btnGameBckGrnd">START</button>
                 </div>
             </section>
         </section>
     </section>
+
+    <script src="dom.js"></script>
+
 </body>
 </html>
 
