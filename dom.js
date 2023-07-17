@@ -1,72 +1,64 @@
 var statusGame;
 var secGame = [];
-
-var level = 0;
-
+var secHuman = [];
+var playerTurn = false;
+var timer = 5000;
+var level = 1;
 
 var btnYellowID= document.getElementById('btnYellow');
-
-btnYellowID.addEventListener('click',funcColorAmarillo);
-function funcColorAmarillo(){
-    console.log('amarillo');
-}
+btnYellowID.addEventListener('click',sequenceHuman);
 
 var btnRedID= document.getElementById('btnRed');
-btnRedID.addEventListener('click',funcColorRojo);
-function funcColorRojo(){
-    console.log('rojo');
-}
+btnRedID.addEventListener('click',sequenceHuman);
+
 var btnBlueID= document.getElementById('btnBlue');
-btnBlueID.addEventListener('click',funcColorAzul);
-function funcColorAzul(){
-    console.log('azul');
-}
+btnBlueID.addEventListener('click',sequenceHuman);
+
 var btnGreenID= document.getElementById('btnGreen');
-btnGreenID.addEventListener('click',funcColorVerde);
-function funcColorVerde(){
-    console.log('Verde');
-}
+btnGreenID.addEventListener('click',sequenceHuman);
 
 
 
-/*----------------------------BTN GAME-----------------------------*/
+
+/*----------------------------GAME-----------------------------*/
 var btnGame = document.getElementById('btnGame');
 btnGame.addEventListener('click',gameRound);
 
 
 function colorBtnSecGlow(number){
-    console.log('colors');
+    debugger;
+    console.log('Entro a "colorBtnSecGlow"');
     switch(number){
         case 0:
             btnYellowID.style.boxShadow = '0px 0px 30px 10px yellow';
-        setTimeout(function(){
-            btnYellowID.style.boxShadow = ''; /*Si no le aclaro propiedades retoma el valor orignal del style*/
-        }, 250)
-        console.log('caso 0');
+            setTimeout(function(){
+                btnYellowID.style.boxShadow = ''; /*Si no le aclaro propiedades retoma el valor orignal del style*/
+            }, 500)
+            console.log('caso 0 - Amarillo');
         break;
 
         case 1:
             btnRedID.style.boxShadow = '0px 0px 30px 10px red';
             setTimeout(function(){
                 btnRedID.style.boxShadow = '';
-            }, 250)
-            console.log('caso 1');
+            }, 500)
+            console.log('caso 1 - Rojo');
         break;
 
         case 2:
             btnBlueID.style.boxShadow = '0px 0px 30px 10px blue';
             setTimeout(function(){
                 btnBlueID.style.boxShadow = '';
-            }, 250)
-            console.log('caso 2');
+            }, 500)
+            console.log('caso 2 - Azul');
         break;
 
         case 3:
             btnGreenID.style.boxShadow = '0px 0px 30px 10px green';
             setTimeout(function(){
                 btnGreenID.style.boxShadow = '';
-            }, 250)
-            console.log('caso 3');
+            }, 500)
+            console.log('caso 3 - Verde');
         break;
     }
 }
@@ -76,24 +68,23 @@ function checkStatus(){
     return document.getElementById('status').innerText;
 } 
 
-var btnDisplay = document.getElementById('btnGame');
-
 function resetGame(){
     document.getElementById('status').innerText = "Ready Player 1";
     document.getElementById('lvl').innerText = "-";
     
-    btnDisplay.style.backgroundColor = '#be04ec';
+    btnGame.style.backgroundColor = '#be04ec';
 
-    secGame = [];
+    secGame.length=0;
+    secHuman.length=0;
+    level=1;
+    timer= 5000;
 }
 
 function starGame(){
-    console.log('StartGAME');
-
     document.getElementById('status').innerText = "Playing";
-    document.getElementById('lvl').innerText = "1";
+    document.getElementById('lvl').innerText = level;
 
-    btnDisplay.style.backgroundColor = '#ec0436';
+    btnGame.style.backgroundColor = '#ec0436';
 }
 
 
@@ -106,42 +97,128 @@ function getRandomInt(min, max) {
 function addSequenceColor(){
     var random = getRandomInt(0,3);
 
+    console.log("addSequenceColor - se agrego a la secuencia de numeros a repetir el numero: "+ random);
+    
     secGame.push(random);
     colorBtnSecGlow(random);
 }
 
 function sequenceHuman(){
-
+    if (checkStatus() === 'Playing'){
+        switch(this.id){
+            case 'btnYellow':
+                secHuman.push(0);
+                console.log("se agrego el numero 0 a los presionados.");
+            break;
+            case 'btnRed':
+                secHuman.push(1);
+                console.log("se agrego el numero 1 a los presionados.");
+            break;
+            case 'btnBlue':
+                secHuman.push(2);
+                console.log("se agrego el numero 2 a los presionados.");
+            break;
+            case 'btnGreen':
+                secHuman.push(3);
+                console.log("se agrego el numero 3 a los presionados.");
+            break;
+        }
+    }
+    /*console.log('secuenceHuman' + this.id);*/
 }
 
+
+
 function sequenceColor(){
+    var expandTimeContinue = 500;
+    debugger;
+    if (secGame.length != 0){
+        for(roundGame=0; roundGame < secGame.length; roundGame++){
+            console.log("sequenceColor - iteracion:" + roundGame);
 
-    console.log('newGame');
-    var iteration = 0;
-    do{
-        if (secGame.length != 0){
-            console.log(iteration);
-
-            colorBtnSecGlow(secGame[iteration]);
-
-            console.log(secGame[iteration].value);
-            console.log("Rompe?");
+            setTimeout(function(){
+                colorBtnSecGlow(secGame[roundGame])      
+            }, expandTimeContinue)
+            
+            expandTimeContinue = expandTimeContinue + 100; 
+               
+        
+/*
+            colorBtnSecGlow(secGame[roundGame]); 
+            console.log("sequenceColor - Se prendio el color:" + secGame[roundGame]);*/
         }
-    }while (iteration++ <= secGame.length-1);
+    }
+    /*la idea del for, es ir agregando mas tiempo a la espera para cada repeticion.
+     Asi da la isluasion que la secuencia de luces se prende con un timpo en el medio
+     Tengo que buscar una mejor forma de aplicarlo. */
+     
     addSequenceColor();
+    
+}
+
+function checkSequences(){
+var error= false;
+
+console.log("cadena a repetir: " + secGame);
+console.log("cadena ingresada: " + secHuman);
+
+    if (secGame.length == secHuman.length){
+        for (x=0; x<=secGame.length-1; x++){
+           if(secGame[x] != secHuman[x]){
+             error=true;
+             console.log("error de pickeo:" + error);
+             break;
+           }
+        }
+
+       if (error){
+        /*gameOver("Error en la secuencia!");*/
+        return false;
+       }else{
+        return true;
+       }
+       
+    }else{
+        /*gameOver("La longitud de la cadena ingresada no coincide!");*/
+        console.log("La longitud de la cadena ingresada no coincide!");
+        return false;
+    }
+    
+}
+
+function updateRound(){
+    timer=timer + 1000;
+    document.getElementById('lvl').innerText = ++level;
+}
+
+function gameOver(){
+    resetGame();
+}
+
+function playGame(){
+    var play;
+    secHuman.length= 0; /*tengo que reiniciar la secuencia en cada ronda*/
+                        /*y por si estoy tocando los botones antes de arrancar*/
+    console.log("-------------------------------------");
+
+    sequenceColor();
+    setTimeout(function(){
+        play= checkSequences();
+        if (play){
+        updateRound();
+        playGame();/*Aca hago la iteracion por ronda superada*/
+        }else{
+        console.log("Juego terminado");
+        /*gameOver();*/
+        }
+    }, timer)   
 }
 
 function gameRound(){
-
     if (checkStatus() === 'Playing'){
         resetGame();
     }else{
-        console.log('gameRound');
         starGame();
-        sequenceColor();
+        playGame();
     }
 }
-
-
-
-
