@@ -5,6 +5,9 @@ var playerTurn = false;
 var timer = 5000;
 var level = 1;
 
+var btnGame= document.getElementById('btnGame');
+btnGame.addEventListener('click',gameRound);
+
 var btnYellowID= document.getElementById('btnYellow');
 btnYellowID.addEventListener('click',sequenceHuman);
 
@@ -18,15 +21,18 @@ var btnGreenID= document.getElementById('btnGreen');
 btnGreenID.addEventListener('click',sequenceHuman);
 
 
+/*var array = [3,2,4];
+console.log(array.length);
+
+for(x=0;x<array.length;x++){
+    console.log(array[x]);
+}*/
 
 
-/*----------------------------GAME-----------------------------*/
-var btnGame = document.getElementById('btnGame');
-btnGame.addEventListener('click',gameRound);
-
+/*----------------Prendo y apago el brillo de los colores----------------*/
 
 function colorBtnSecGlow(number){
-    debugger;
+    /*debugger;*/
     console.log('Entro a "colorBtnSecGlow"');
     switch(number){
         case 0:
@@ -60,6 +66,7 @@ function colorBtnSecGlow(number){
             }, 500)
             console.log('caso 3 - Verde');
         break;
+        default: console.log("colorBtnSecGlow - Salida por default");
     }
 }
 
@@ -130,31 +137,44 @@ function sequenceHuman(){
 
 
 function sequenceColor(){
-    var expandTimeContinue = 500;
-    debugger;
-    if (secGame.length != 0){
-        for(roundGame=0; roundGame < secGame.length; roundGame++){
+    /*var expandTimeContinue = 500;*/
+    var roundGame=0;
+    /*debugger;¨*/
+    var interval = setInterval(function(){
+        if (roundGame <=secGame.length-1){
+                colorBtnSecGlow(secGame[roundGame]);
+                roundGame++;
+        }else{
+            clearInterval(interval);
+            addSequenceColor();   
+        }
+    }, 800)
+}
+/*
+        for(roundGame=0; roundGame <= secGame.length-1; roundGame++){
             console.log("sequenceColor - iteracion:" + roundGame);
-
-            setTimeout(function(){
-                colorBtnSecGlow(secGame[roundGame])      
+*/
+          /*  setTimeout(function(){
+                colorBtnSecGlow(secGame[roundGame]);   
+                console.log("sequenceColor - Se prendio el color:" + secGame[roundGame]);   
             }, expandTimeContinue)
             
-            expandTimeContinue = expandTimeContinue + 100; 
-               
+            expandTimeContinue = expandTimeContinue + 500; */
+
+           /* colorBtnSecGlow(secGame[roundGame]);   */
         
 /*
             colorBtnSecGlow(secGame[roundGame]); 
             console.log("sequenceColor - Se prendio el color:" + secGame[roundGame]);*/
-        }
-    }
+        /*}*/
+  /*  }*/
     /*la idea del for, es ir agregando mas tiempo a la espera para cada repeticion.
      Asi da la isluasion que la secuencia de luces se prende con un timpo en el medio
      Tengo que buscar una mejor forma de aplicarlo. */
      
-    addSequenceColor();
+   
     
-}
+/*}*/
 
 function checkSequences(){
 var error= false;
@@ -209,13 +229,14 @@ function playGame(){
         playGame();/*Aca hago la iteracion por ronda superada*/
         }else{
         console.log("Juego terminado");
+        resetGame();
         /*gameOver();*/
         }
     }, timer)   
 }
 
 function gameRound(){
-    if (checkStatus() === 'Playing'){
+    if (checkStatus() == 'Playing'){
         resetGame();
     }else{
         starGame();

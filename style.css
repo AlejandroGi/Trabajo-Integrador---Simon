@@ -118,8 +118,32 @@ color:#d07e26;
 --------------------------------------------------------------*/
 #newRecord{
   display: none;
+  flex-flow: column nowrap;
+  justify-content:space-evenly;
+  align-items: center;
+  background-color: #fcc205;
+
+}
+.titleTop{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.titleTop i{
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 20px;
+}
+.titleTop h2{
+  font-size: 2rem;
+  font-weight: 900;
 }
 
+#inputsForm{
+  display: flex;
+  flex-flow: row nowrap;
+  
+}
 
 
 /*--------------------------------------------------------------
