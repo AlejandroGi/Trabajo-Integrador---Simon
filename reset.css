@@ -16,9 +16,9 @@
     --color-links: #0ea2bd;
     --color-links-hover: #1ec3e0;
     
-    --color-primary: #e0f1f2;
-    --color-primary-light: #1ec3e0;
-    --color-primary-dark: #026d91;
+    --color-primary: #7900ca;
+    --color-primary-light: #a013fd;
+    --color-primary-dark: #39005f;
 
     --color-secondary: #485664;
     --color-secondary-light: #8f9fae;
@@ -28,14 +28,14 @@
   /* (Opcional) Las adaptamos al modo oscuro */
   @media (prefers-color-scheme: dark) {
     :root{
-        --negro: #ececec;
+        --negro: #e0f1f2;
     }
   }
   
   /* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
   @media (prefers-contrast: high){
       :root{
-        --blanco: #1a1f24;
+        --blanco: #0e0f14;
       }
   }
   

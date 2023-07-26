@@ -1,33 +1,36 @@
 /*--------------------------------------------------------------
-# General
+# general
 --------------------------------------------------------------*/
 body {
     font-family:'Poppins','Source Sans Pro','Encode Sans','Arial','Roboto','Open Sans', sans-serif;
     color: var(--color-white);
     background-color: var(--color-dark);
+
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, span{
     font-family: var(--font-primary);
     color: var(--color-white);
   }
   
   
   a {
-    text-decoration: none;
     color: var(--color-primary-dark);
     font-family: var(--font-secondary);
   }
 
 /*--------------------------------------------------------------
-# Header
+# header
 --------------------------------------------------------------*/
   #header{
     display:flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-
   }
 
 .banner{
@@ -49,7 +52,7 @@ body {
 }
 
 .info{
-  display:flex;
+  display:none;
   flex-flow: row nowrap;
   justify-content:space-between;
   align-items: center;
@@ -114,44 +117,80 @@ color:#d07e26;
 }
 
 /*--------------------------------------------------------------
-# newRecord
+# boxName
 --------------------------------------------------------------*/
-#newRecord{
-  display: none;
+#boxName{
+  display: flex;
   flex-flow: column nowrap;
-  justify-content:space-evenly;
+  justify-content:space-evenly; /*Ver en base a los cambios si lo dejo*/
   align-items: center;
-  background-color: #fcc205;
+  background-color: var(--color-dark-light);
 
 }
 .titleTop{
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+
+  margin: 15px 0px;
 }
 .titleTop i{
   font-size: 2rem;
   font-weight: 900;
   margin: 0 20px;
 }
-.titleTop h2{
+
+.titleTop span{
+  font-size: 2rem;
+  font-weight: 900;
+
+}
+
+.titleTop .titleUser{
   font-size: 2rem;
   font-weight: 900;
 }
 
 #inputsForm{
   display: flex;
-  flex-flow: row nowrap;
-  
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
+#inputsForm input{
+  color: var(--color-primary-dark);
+  background-color: var(--color-white);
+  font-size: 1.3rem;
+
+  border-radius: 100px;
+
+  padding: 5px 0px;
+  margin: 10px 0px;
+}
+
+#userName{
+  text-align: center; 
+}
+
+#btnReady{
+  color: var(--color-dark-light);
+  background-color: var(--color-primary-dark);
+  font-size: 1.3rem;
+
+  border-radius: 100px;
+  width: 100%;
+
+  padding: 5px 0px;
+  margin: 5px 0px 10px 0px;
+}
 
 /*--------------------------------------------------------------
 # boxGame
 --------------------------------------------------------------*/
 
 #alingBox{
-  display: flex;
+  display: none;
   flex-flow: column nowrap;
   justify-content: center;   /* No tiene nada contra que centrar*/
   align-items: center; 

@@ -1,8 +1,44 @@
+/*--------------------------------------------------------------
+# boxName
+--------------------------------------------------------------*/
+var userName = document.getElementById('userName');
+userName.addEventListener('keyup',changeTitle);
+userName.addEventListener('keyup',validateUser);
+
+var nameTitle = document.getElementById('titleUser');
+
+var btnReady = document.getElementById('btnReady');
+btnReady.addEventListener('click',newInstance);
+
+function newInstance(){
+    
+}
+
+function changeTitle(){
+    nameTitle.innerText = 'WELCOME ' + userName.value.toUpperCase();
+    if(userName.value.length == 0){
+        nameTitle.innerText = 'WELCOME USER';
+    }
+}
+
+function validateUser(){
+    if (userName.value.length > 3){
+        btnReady.style.backgroundColor="var(--color-primary)";
+        btnReady.style.boxShadow="0px 0px 10px 2px var(--color-primary-light)"
+        btnReady.style.color="var(--color-white)";
+    }else{
+        btnReady.style.backgroundColor="";
+        btnReady.style.boxShadow="";
+        btnReady.style.color="";
+    }
+}
+
+
 var statusGame;
 var secGame = [];
 var secHuman = [];
 var playerTurn = false;
-var timer = 5000;
+var timer = 3000;
 var level = 1;
 
 var btnGame= document.getElementById('btnGame');
