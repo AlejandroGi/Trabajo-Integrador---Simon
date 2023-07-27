@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 </head>
-<body>
+<body id="body">
     <header class="header">
         <section class="banner">
             <h1 id="title" class="title">SIMON GAME</h1>
         </section>
-        <section class="info">
+        
+        <section id="info" class="info">
             <section class="infoGame">
                 <div>
                     <span>
@@ -45,17 +46,20 @@
                 </div>
             </section>
             
+            <section id="infoTimer" class="infoTimer">
+                <div>
+                    <h2 id="timerTitle">TIMER</h2>
+                    <h2 id="timerNumber">-</h2>
+                </div>
+            </section>
+
             <section class="infoScore">
                 <div>
-                    <i class="fa fa-star"></i>
-                    <span>TOP 3</span>
-                    <i class="fa fa-star"></i>
+                    <a class="btnContact" href="contact.html" target="_blank"><i class="fa fa-envelope"></i><span>Contact</span></a>
                 </div>
-                <ul id="top3">
-                    <li id="bestPlayer" class="bestPlayer">Best Player</li>
-                    <li id="secondPlayer" class="secondPlayer">Second Player</li>
-                    <li id="thirdPlayer" class="thirdPlayer">Third Player</li>
-                </ul>
+                <div>
+                    <button id="btnTopPlayers" class="btnTopPlayers"><i class="fa fa-trophy"></i><span>TOP</span></button>
+                </div>
             </section>
         </section>
     </header>
@@ -68,7 +72,7 @@
             <i class="fa fa-user-o"></i>
         </div>
         <form id="inputsForm" action="" class="inputsForm">
-            <input type="text" name="userName" id="userName" placeholder="USER" required></input>
+            <input type="text" name="userName" id="userName" placeholder="USER"></input>
             <button id="btnReady" class="btnReady">READY</button>        
         </form>
     </section>
@@ -92,6 +96,16 @@
         </section>
     </section>
 
+    <footer id="footer">
+        <div id="footLeft">
+            <a href="https://github.com/AlejandroGi/Trabajo-Integrador---Simon" target="_blank" ><i class="fa fa-github"></i> Gigena Alejandro</a>
+        </div>
+        <div id="footRight">
+            <h3>LPPA</h3>
+            <h3>2023</h3>
+        </div>
+
+    </footer>
     <script src="dom.js"></script>
 
 </body>

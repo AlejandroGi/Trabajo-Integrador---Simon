@@ -1,42 +1,41 @@
 /*--------------------------------------------------------------
 # general
 --------------------------------------------------------------*/
-body {
+body{
     font-family:'Poppins','Source Sans Pro','Encode Sans','Arial','Roboto','Open Sans', sans-serif;
     color: var(--color-white);
     background-color: var(--color-dark);
 
-    
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
+    flex-flow:column nowrap;
+    justify-content: space-between;
   }
 
   h1, h2, h3, h4, h5, h6, span{
     font-family: var(--font-primary);
     color: var(--color-white);
   }
-  
-  
-  a {
+
+  a{
     color: var(--color-primary-dark);
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
   }
+
 
 /*--------------------------------------------------------------
 # header
 --------------------------------------------------------------*/
-  #header{
-    display:flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-  }
+#header{
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
 
 .banner{
   display:flex;
   flex-flow: column nowrap;
-  justify-content:center;
+  justify-content:space-evenly;
   align-items: center;
 
   background-color: var(--color-dark-light);
@@ -46,13 +45,35 @@ body {
   border-style:dotted;
 }
 
+
+/*-------------------------------infoTimer-------------------------------*/
+#infoTimer{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px;
+  border-radius: 10px;
+  border-color: red;
+  border-width: 5px;
+  border-style:inset;
+}
+
+
+#infoTimer h2{
+  text-align: center;
+}
+
+
+
 #title{
   font-size: 2.3rem;
   font-weight: 800;
 }
 
 .info{
-  display:none;
+  display:flex;
   flex-flow: row nowrap;
   justify-content:space-between;
   align-items: center;
@@ -72,22 +93,24 @@ body {
   align-items: baseline;
 }
 
-
+/*-------------------------------infoScore-------------------------------*/
 .infoScore{
   display:flex;
   flex-flow: column nowrap;
-  justify-content:baseline;
-  align-items: center;
+  align-items:flex-start;
 }
 
 .infoScore div{
   display:flex;
   flex-flow: row nowrap;
-  justify-content:space-around;
-  align-items: center;
+}
 
-  width: 45%;
-  margin-bottom: 5px;
+.infoScore button{
+  font-weight: 800;
+}
+
+.infoScore i{
+  margin: 5px 10px;
 }
 
 .infoScore li{
@@ -120,7 +143,7 @@ color:#d07e26;
 # boxName
 --------------------------------------------------------------*/
 #boxName{
-  display: flex;
+  display: none;
   flex-flow: column nowrap;
   justify-content:space-evenly; /*Ver en base a los cambios si lo dejo*/
   align-items: center;
@@ -190,7 +213,7 @@ color:#d07e26;
 --------------------------------------------------------------*/
 
 #alingBox{
-  display: none;
+  display: flex;
   flex-flow: column nowrap;
   justify-content: center;   /* No tiene nada contra que centrar*/
   align-items: center; 
@@ -341,4 +364,35 @@ color:#d07e26;
 
 .btnGame:active{
   box-shadow: 0px 0px 200px 20px #b786f8;
+}
+
+
+/*--------------------------------------------------------------
+# footer
+--------------------------------------------------------------*/
+#footer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  
+  background-color: var(--color-dark);
+  padding: 4px 15px;
+}
+#footLeft{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#footLeft a,i{
+color: var(--color-white);
+}
+
+#footRight{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#footRight h3{
+  padding: 0px 5px;
 }

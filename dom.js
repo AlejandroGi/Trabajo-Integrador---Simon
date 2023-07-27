@@ -1,21 +1,34 @@
 /*--------------------------------------------------------------
 # boxName
 --------------------------------------------------------------*/
-var userName = document.getElementById('userName');
+/*
+var userName= document.getElementById('userName');
 userName.addEventListener('keyup',changeTitle);
 userName.addEventListener('keyup',validateUser);
 
-var nameTitle = document.getElementById('titleUser');
+var nameTitle= document.getElementById('titleUser');
 
-var btnReady = document.getElementById('btnReady');
-btnReady.addEventListener('click',newInstance);
+var btnReady= document.getElementById('btnReady');
+btnReady.addEventListener('click',newGame);
 
-function newInstance(){
+var boxName= document.getElementById('boxName');
+var body= document.getElementById('body');
+var alingBox= document.getElementById('alingBox');
+var info= document.getElementById('info');
+
+var flagReady= false;
+
+var status= document.getElementById('status').innerText;
+
+
+function newGame(){ 
+    document.getElementById('inputsForm').display="none";
+    document.getElementById('boxName').display= "none";
     
 }
 
 function changeTitle(){
-    nameTitle.innerText = 'WELCOME ' + userName.value.toUpperCase();
+    nameTitle.innerText = 'WELCOME ' + userName.value;
     if(userName.value.length == 0){
         nameTitle.innerText = 'WELCOME USER';
     }
@@ -24,15 +37,19 @@ function changeTitle(){
 function validateUser(){
     if (userName.value.length > 3){
         btnReady.style.backgroundColor="var(--color-primary)";
-        btnReady.style.boxShadow="0px 0px 10px 2px var(--color-primary-light)"
+        btnReady.style.boxShadow="0px 0px 10px 2px var(--color-primary-light)";
         btnReady.style.color="var(--color-white)";
+
+        flagReady=true;
     }else{
         btnReady.style.backgroundColor="";
         btnReady.style.boxShadow="";
         btnReady.style.color="";
+
+        flagReady=false;
     }
 }
-
+*/
 
 var statusGame;
 var secGame = [];
@@ -56,13 +73,6 @@ btnBlueID.addEventListener('click',sequenceHuman);
 var btnGreenID= document.getElementById('btnGreen');
 btnGreenID.addEventListener('click',sequenceHuman);
 
-
-/*var array = [3,2,4];
-console.log(array.length);
-
-for(x=0;x<array.length;x++){
-    console.log(array[x]);
-}*/
 
 
 /*----------------Prendo y apago el brillo de los colores----------------*/
