@@ -20,9 +20,9 @@ function validateName(){
             acum++;
         }
     }
-    if (acum != nameInput.value.length){
+    if(acum != nameInput.value.length){
         errorMsg= "The Name cannot contain numbers or special characters. ";
-    }else {
+    }else{
         if(nameInput.value.length < 6){
             errorMsg=errorMsg+ "The Name has less than 6 alphabetic characters. ";
         }
@@ -46,9 +46,9 @@ function validateSurname(){
             acum++;
         }
     }
-    if (acum != surnameInput.value.length){
+    if(acum != surnameInput.value.length){
         errorMsg= "The Last Name cannot contain numbers or special characters. ";
-    }else {
+    }else{
         if(surnameInput.value.length < 6){
             errorMsg=errorMsg+ "The Last Name has less than 6 alphabetic characters. ";
         }
@@ -97,41 +97,43 @@ var btnSend = document.getElementById('btnSend');
 btnSend.addEventListener('click', checkInputs)
 
 function checkInputs(){
-    var flagErrorEmpty = false;
-    var flagErrorInputEmpty=false;
+    var flagErrorEmpty = true;
+    var flagErrorInputEmpty=true;
     var allMsgErrorString =[];
     var allInputs = [];
-
+    
     allMsgError=document.getElementsByClassName('error');
 
-    for (x = 0; x < allMsgError.length; x++) {
-        if (allMsgError[x].innerText != '') {
-            flagErrorEmpty = true; //Si encuentra un error -> true
+    for (x = 0; x < allMsgError.length; x++){
+        if(allMsgError[x].innerText != ''){
+            flagErrorEmpty = false; //Si encuentra un error -> Falso
         }
     }
 
     allInputs=document.querySelectorAll('form input');
 
-    for (x = 0; x < allInputs.length; x++) {
-        if (allInputs[x].value != '') { 
-            flagErrorInputEmpty = true; //Si encuentra un campo vacio ->Falso
+    for (x = 0; x < allInputs.length; x++){
+        if(allInputs[x].value === '') { 
+            flagErrorInputEmpty = false; //Si encuentra un campo vacio ->Falso
         }
     }
 
-    if (flagErrorEmpty && flagErrorInputEmpty){
+    if(flagErrorEmpty && flagErrorInputEmpty){
         alert(nameInput.value + surnameInput.value + emailInput.value + messageInput.value);
-        
+
         console.log("mandar mail");
     }else{
-        if (flagErrorEmpty){
+        if(!flagErrorInputEmpty){
             alert('You must complete all the inputs');
         }else{
-            for(x = 0; x < allMsgError.length; x++){
+            for (x = 0; x < allMsgError.length; x++){
                 allMsgErrorString=allMsgErrorString+ allMsgError[x].innerText;
             }
             alert(allMsgErrorString);
         }
     } 
     allMsgErrorString= "";
+
+
 }
 
