@@ -46,32 +46,9 @@ body{
 }
 
 
-/*-------------------------------infoTimer-------------------------------*/
-#infoTimer{
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-
-  padding: 5px;
-  border-radius: 10px;
-  border-color: red;
-  border-width: 5px;
-  border-style:inset;
-}
 
 
-#infoTimer h2{
-  text-align: center;
-}
-
-
-
-#title{
-  font-size: 2.3rem;
-  font-weight: 800;
-}
-
+/*-------------------------------info-------------------------------*/
 .info{
   display:flex;
   flex-flow: row nowrap;
@@ -91,13 +68,40 @@ body{
   flex-flow: column nowrap;
   justify-content: center;
   align-items: baseline;
+  width: 33%;
 }
+
+
+/*-------------------------------infoTimer-------------------------------*/
+#infoTimer{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px;
+  border-radius: 10px;
+  border-color: white;
+  border-width: 5px;
+  border-style:inset;
+}
+
+#infoTimer h2{
+  text-align: center;
+}
+
+#title{
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
 
 /*-------------------------------infoScore-------------------------------*/
 .infoScore{
   display:flex;
   flex-flow: column nowrap;
-  align-items:flex-start;
+  align-items:end;
+  width: 33%;
 }
 
 .infoScore div{
@@ -117,7 +121,6 @@ body{
   display: inline;
   padding: 0px 5px;
 }
-/*Si sobre tiempo agregar breakpoint*/
 
 .infoScore .bestPlayer{
 color:var(--color-white);
@@ -143,7 +146,12 @@ color:#d07e26;
 # boxName
 --------------------------------------------------------------*/
 #boxName{
-  display: none;
+  position:absolute;
+  width: 100vw;
+  height: 26vh;
+  z-index: 1;
+
+  display: flex;
   flex-flow: column nowrap;
   justify-content:space-evenly; /*Ver en base a los cambios si lo dejo*/
   align-items: center;
@@ -154,19 +162,12 @@ color:#d07e26;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-
-  margin: 15px 0px;
 }
+
 .titleTop i{
   font-size: 2rem;
   font-weight: 900;
   margin: 0 20px;
-}
-
-.titleTop span{
-  font-size: 2rem;
-  font-weight: 900;
-
 }
 
 .titleTop .titleUser{
@@ -182,43 +183,60 @@ color:#d07e26;
 }
 
 #inputsForm input{
+  font-size: 1.3rem;
   color: var(--color-primary-dark);
   background-color: var(--color-white);
-  font-size: 1.3rem;
-
   border-radius: 100px;
-
   padding: 5px 0px;
-  margin: 10px 0px;
 }
 
 #userName{
-  text-align: center; 
+  text-align: center;
+  border-color: var(--color-white);
+  border-style: solid;
+  border-width: 4px;
 }
 
-#btnReady{
-  color: var(--color-dark-light);
-  background-color: var(--color-primary-dark);
-  font-size: 1.3rem;
+#userName .rules{
 
-  border-radius: 100px;
-  width: 100%;
+}
 
-  padding: 5px 0px;
-  margin: 5px 0px 10px 0px;
+/*--------------------------------------------------------------
+# rules
+--------------------------------------------------------------*/
+#rules{
+  margin-top: 100px;
+  position:absolute;
+  z-index: 2;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 28vw;
+}
+
+#rules img{
+  width: 10vw;
+  height: 15vh;
+  margin: 30px 0;
+}
+
+#rules div{
+  width: 100vw;
+  padding: 100px 0px;
+  background-color: red;
 }
 
 /*--------------------------------------------------------------
 # boxGame
 --------------------------------------------------------------*/
-
 #alingBox{
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;   /* No tiene nada contra que centrar*/
   align-items: center; 
 
-  margin-top: 5rem; /*Si, se puede mejorar, pero hay que hacer el js*/ 
+  margin-top: 1rem; /*Si, se puede mejorar, pero hay que hacer el js*/ 
   /*Si utilizo medidas en base a REM, deberia acomodarse en todos los dispositivos.*/
 }
 
@@ -226,7 +244,7 @@ color:#d07e26;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-
+  align-items: center;
 
   width: 60vw;
   height: 60vw;
@@ -236,14 +254,8 @@ color:#d07e26;
 
   border-radius: 50%;
   background-color: var(--color-black);
-  
- /* border-style:double;
-  border-color: var(--color-black);
-  border-width: 4px;
-  border-radius: 50%;
-  box-shadow: 4px 4px 4px 10px; */
-
 }
+
 .buttonsBox{
   display: flex;
   flex-flow: row wrap;
@@ -272,7 +284,12 @@ color:#d07e26;
   width: 22vw;
   height: 22vw;
   /*border-radius: 0 0 0 0;*/ /*marca el corte del cuadrado*/
-  background-color: white;
+  background-color: white; /*Color por defecto*/
+
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
 
   max-width: 22vh;
   max-height: 22vh;
@@ -351,11 +368,11 @@ color:#d07e26;
 
   border-radius: 100%;
   
-  background-color:#be04ec;
+  background-color:grey;
 }
 
 .btnGame:hover{
-  border-color: var(--color-white);
+  border-color: grey;
   border-style:double;
   border-width: 10px;
 

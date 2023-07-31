@@ -1,56 +1,59 @@
 /*--------------------------------------------------------------
 # boxName
 --------------------------------------------------------------*/
-/*
 var userName= document.getElementById('userName');
 userName.addEventListener('keyup',changeTitle);
-userName.addEventListener('keyup',validateUser);
+userName.addEventListener('focus',changeBackTitle);
+
 
 var nameTitle= document.getElementById('titleUser');
-
-var btnReady= document.getElementById('btnReady');
-btnReady.addEventListener('click',newGame);
-
 var boxName= document.getElementById('boxName');
-var body= document.getElementById('body');
-var alingBox= document.getElementById('alingBox');
-var info= document.getElementById('info');
 
-var flagReady= false;
-
-var status= document.getElementById('status').innerText;
+var op= false;
 
 
-function newGame(){ 
-    document.getElementById('inputsForm').display="none";
-    document.getElementById('boxName').display= "none";
-    
+function changeBackTitle(){
+    userName.style.borderColor= "";
+}
+
+function changeBtnGameColor(){
+    if (userName.value.length > 3){
+        btnGame.style.backgroundColor= "var(--color-primary-light)";
+        btnGame.style.borderColor= "var(--color-white)";
+        btnGame.style.boxShadow= "";
+        btnGame.style.color= "";
+        btnGame.innerText= "START";
+    }else{
+        btnGame.style.backgroundColor= ""
+        btnGame.style.borderColor= "red";
+        btnGame.style.boxShadow="none";
+        btnGame.style.color= "red";
+        btnGame.innerText= "--";
+    }
 }
 
 function changeTitle(){
     nameTitle.innerText = 'WELCOME ' + userName.value;
-    if(userName.value.length == 0){
+    if (userName.value.length == 0){
         nameTitle.innerText = 'WELCOME USER';
     }
+    changeBtnGameColor();
 }
 
 function validateUser(){
     if (userName.value.length > 3){
-        btnReady.style.backgroundColor="var(--color-primary)";
-        btnReady.style.boxShadow="0px 0px 10px 2px var(--color-primary-light)";
-        btnReady.style.color="var(--color-white)";
-
-        flagReady=true;
+        document.getElementById('player').innerText= userName.value;
+        return true; 
     }else{
-        btnReady.style.backgroundColor="";
-        btnReady.style.boxShadow="";
-        btnReady.style.color="";
-
-        flagReady=false;
+        return false;
     }
-}
-*/
+    
 
+}
+
+/*--------------------------------------------------------------
+# game
+--------------------------------------------------------------*/
 var statusGame;
 var secGame= [];
 var secHuman= [];
@@ -120,26 +123,19 @@ function colorBtnSecGlow(number){
 
 
 function updateRound(){
-    timeRemainGame= 5 + level*2 ;
-    timerIteration= timeRemainGame*1000 + 1000;
+    console.log("/---------------updateRound-------------/");
+    document.getElementById('lvl').innerText = ++level;
+    document.getElementById('infoTimer').style.borderColor= "";
+    timeRemainGame= 5 + (level*2 + 1);/*El +1 para que se vea el 10 en el timer*/
+    timerIteration= timeRemainGame*1000 + (level*2*1000);
     position= 0;
     secHuman.length= 0;
-    console.log("secHuman" + secHuman.length);
-    document.getElementById('lvl').innerText = ++level;
-    document.getElementById('points').innerText= ++points;
     
-    console.log("/---------------updateRound-------------/");
-    console.log("reset secHuman: " + secHuman.length);
-    console.log("reset position: " + position);
-
     resetCountdown(timer);
 }
 
 function checkSequences(){
-    console.log("checkSequences");
-    console.log("cadena a repetir: " + secGame);
-    console.log("cadena ingresada: " + secHuman);
-
+    console.log("/---------------checkSequences-------------/");
     if (secGame.length == secHuman.length){
         return true;
     }else{
@@ -150,7 +146,7 @@ function checkSequences(){
 function checkGame(){
     if (checkSequences()){
         console.log("/----------checkGame - TRUE -----------/");
-        clearInterval(timer); /*Corto el countDown*/
+        clearInterval(timer); 
         updateRound();
         playGame();
         
@@ -172,10 +168,10 @@ function checkSequencesClick(){
             console.log("checkSequencesClick -- secGame:" + secGame[position]);
             console.log("checkSequencesClick -- secHuman:" + secHuman[position]);
            
-            reason= "Error en la secuencia!";
+            reason= "Sequence error!";
             gameOver(reason);
         }else{
-            clearInterval(timer); /*Queda trabado en count. Saldra con esto?*/
+            clearInterval(timer); 
             console.log("/-----------------checkStatus FALSE----------/");
             console.log("posicion: " + position);
             console.log("checkSequencesClick -- secGameCadena:" + secGame);
@@ -183,7 +179,8 @@ function checkSequencesClick(){
             console.log("checkSequencesClick -- secGame:" + secGame[position]);
             console.log("checkSequencesClick -- secHuman:" + secHuman[position]);
             checkGame();
-
+            
+            document.getElementById('points').innerText= ++points;
         }
 
         var flagUse0;
@@ -232,21 +229,19 @@ function sequenceHuman(){
 
 function resetCountdown(){
     clearInterval(timer);
-    timeRemainGame=5;
-    document.getElementById('timerNumber').innerText = "-";
+    document.getElementById('timerNumber').innerText= "-";
 }
 
 function gameOver(reason){
-    document.getElementById('status').innerText = reason;
+    document.getElementById('status').innerText= reason;
     
-    btnGame.style.backgroundColor = '#be04ec';
+    btnGame.style.backgroundColor= '#be04ec';
+    btnGame.innerText= "START";
 
     secGame.length= 0;
     secHuman.length= 0;
-    level=1;
     timerIteration= 5000;
     timeRemainGame= 5;
-    points= 0;
     position= 0;
     console.log(reason);
 
@@ -255,50 +250,53 @@ function gameOver(reason){
 
 
 
-
-
-
 /*----------------Contador del timer----------------*/
 function countDown(){
-    timer = setInterval(function() {
-        document.getElementById('timerNumber').innerText = timeRemainGame;
-        timeRemainGame--;
+    var timeStartGame;
+    var count= 0;
 
-        if (timeRemainGame == 0 || checkStatus == "Ready" || checkStatus == "Error en la secuencia!") {
-          reason="Times up";
-          clearInterval(timer);
-          gameOver(reason);
+    timeStartGame= timeRemainGame;
+    timer= setInterval(function() {
+        document.getElementById('timerNumber').innerText= timeRemainGame;
+
+        if (timeRemainGame == 0 || checkStatus == "Ready" || checkStatus == "Sequence error!"){
+            reason="Times up";
+            clearInterval(timer);
+            gameOver(reason);
         }
+        if (timeRemainGame <= timeStartGame-(timeStartGame/2)){
+            document.getElementById('infoTimer').style.borderColor= "red";
+            count++;
+            if (count == 2){
+                document.getElementById('points').innerText= --points;
+                count= 0;
+            }
+        }
+        timeRemainGame--;
     }, 1000);
 }
-
-
 
 function checkStatus(){
     return document.getElementById('status').innerText;
 } 
 
 function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
 
 function addSequenceColor(){
-    var random = getRandomInt(0,3);
     console.log("/---------------addSequenceColor----------");
-    console.log("Se agrego a la secuencia de numeros a repetir el numero: "+ random);
-    
+    var random = getRandomInt(0,3);
     secGame.push(random);
     colorBtnSecGlow(random);
 }
 
 function sequenceColor(){
+    console.log("/------------sequenceColor--------------");
     var roundGame= 0;
     var interval= setInterval(function(){
         if (roundGame <=secGame.length-1){
             colorBtnSecGlow(secGame[roundGame]);
-            console.log("/------------sequenceColor--------------");
             console.log("Brilla color" + secGame[roundGame]);
             roundGame++;
         }else{
@@ -310,25 +308,31 @@ function sequenceColor(){
 
 
 function playGame(){
-    console.log("1. -------------------------------------");
     sequenceColor();
-    countDown();
+    setTimeout(function(){
+        countDown();
+    },800 * level) 
 }
+ /* La idea es que comience el countdown al terminar la serie. 
+    Si la serie esta en el nivel 3, por lo tanto son 3 pasadas por el sequenceColor que tiene un intervalo de 850 (lag operacion 50).
+*/
 
 function starGame(){
-    document.getElementById('status').innerText = "Playing";
-    document.getElementById('lvl').innerText = level;
+    document.getElementById('status').innerText= "Playing";
+    document.getElementById('lvl').innerText= level;
+    document.getElementById('points').innerText= points;
 
-    btnGame.style.backgroundColor = '#ec0436';
+    btnGame.style.backgroundColor= '#ec0436';
+    btnGame.innerText= "RESET";
 }
 
 function resetGame(){
+    document.getElementById('status').innerText= "Ready";
+    document.getElementById('lvl').innerText= "-";
+    document.getElementById('points').innerText= "-";
     
-    document.getElementById('status').innerText = "Ready";
-    document.getElementById('lvl').innerText = "-";
-    document.getElementById('points').innerText = "-";
-    
-    btnGame.style.backgroundColor = '#be04ec';
+    btnGame.style.backgroundColor= '#be04ec';
+    btnGame.innerText= "START";
 
     secGame.length= 0;
     secHuman.length= 0;
@@ -342,10 +346,16 @@ function resetGame(){
 }
 
 function gameRound(){
-    if (checkStatus() == 'Playing'){
-        resetGame();
+    if (validateUser()){
+        btnGame.style.backgroundColor= '#be04ec';
+        boxName.style.display= 'none';
+        if (checkStatus() == 'Playing'){
+            resetGame();
+        }else{
+            starGame();
+            playGame();
+        }
     }else{
-        starGame();
-        playGame();
+        userName.style.borderColor= "red";
     }
 }

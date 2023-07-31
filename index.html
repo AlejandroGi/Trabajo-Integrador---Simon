@@ -21,36 +21,20 @@
         <section id="info" class="info">
             <section class="infoGame">
                 <div>
-                    <span>
-                        Player: 
-                    </span>
-                    <span id="player">
-                        - 
-                    </span>
+                    <span>Player: </span>
+                    <span id="player">-</span>
                 </div>
                 <div>
-                    <span>
-                        Status: 
-                    </span>
-                    <span id="status">
-                        - 
-                    </span>
+                    <span>Status: </span>
+                    <span id="status">-</span>
                 </div>
                 <div>
-                    <span>
-                        Level:
-                    </span>
-                    <span id="lvl">
-                        -
-                    </span>
+                    <span>Level: </span>
+                    <span id="lvl">-</span>
                 </div>
                 <div>
-                    <span>
-                        Points:
-                    </span>
-                    <span id="points">
-                        -
-                    </span>
+                    <span>Points: </span>
+                    <span id="points">-</span>
                 </div>
             </section>
             
@@ -63,10 +47,22 @@
 
             <section class="infoScore">
                 <div>
-                    <a class="btnContact" href="contact.html" target="_blank"><i class="fa fa-envelope"></i><span>Contact</span></a>
+                    <a class="btnContact" href="contact.html" target="_blank">
+                        <i class="fa fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
                 </div>
                 <div>
-                    <button id="btnTopPlayers" class="btnTopPlayers"><i class="fa fa-trophy"></i><span>TOP</span></button>
+                    <a class="btnTopPlayers">
+                        <i class="fa fa-trophy"></i>
+                        <span>TOP</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="" target="_blank" class="rules">
+                        <i class="fa fa-book"></i>
+                        <span>Rules</span>
+                    </a>
                 </div>
             </section>
         </section>
@@ -74,17 +70,45 @@
 
         
     <section id="boxName" class="boxName">
+        <div>
+            <a href="" target="_blank" class="rules">
+                <i class="fa fa-book"></i>
+                <span>Rules</span>
+            </a>
+        </div>
         <div class="titleTop">
             <i class="fa fa-user-o"></i>
             <h2 id="titleUser" class= titleUser>WELCOME USER</h2>
             <i class="fa fa-user-o"></i>
         </div>
         <form id="inputsForm" action="" class="inputsForm">
-            <input type="text" name="userName" id="userName" placeholder="USER"></input>
-            <button id="btnReady" class="btnReady">READY</button>        
+            <input type="text" name="userName" id="userName" placeholder="USER"></input>  
         </form>
+      
     </section>
 
+    <section id="rules" class="rules">
+        <img src="imgs/Da_Rules.png"/>
+        <p> 1. El jugador tiene que identificarse con un nombre mayor a 3 letras!</p>
+        <p>
+            2. Por cada ronda superada, el jugardor obtiene mas tiempo.
+            Con la siguiente formula: Tiempo Inicial + proximo nivel*2. Tiempo Inicial: 5s.
+            Nivel 1: Tiempo Inicial + 2*2.
+            Nivel 2: Tiempo Inicial + 3*2.
+            Nivel 3: Tiempo Inicial + 4*2.
+        </p>
+        <p>
+            El tiempo de la ronda anterior NO se acumula para la siguiente ronda.
+        </p>
+        <p>
+            Si pasa la mitad del tiempo de la ronda, el jugador pierde 1 punto cada 2 segundos. Ej:
+            Nivel 1: Timpo de la ronda: 5s. Tiempo que inicio a perder puntos: 3s. Al restar 1 segundo de la ronda, perdi 1 puntos.
+            Nivel 3: Tiempo de la ronda: 12s. Tiempo que inicio a perder puntos: 6s. Al restar 4 segundo de la ronda, perdi 1 puntos. Al restar 2 segundos de la ronda, perdi 2 puntos.
+        </p>
+        <p>
+            ¡La partida puede terminar con puntaje negativo!
+        </p>
+    </section>
 
     <section id="alingBox" clas="alingBox">
         <section id="boxGame" class="boxGame">
@@ -98,7 +122,7 @@
                     <button id="btnGreen" class="btn btnGreen btnGlowGreen"></button>
                 </div>
                 <div class= "btnGameBckGrnd">
-                    <button id="btnGame" class="btn btnGame btnGameBckGrnd">START</button>
+                    <button id="btnGame" class="btn btnGame btnGameBckGrnd">--</button>
                 </div>
             </section>
         </section>
