@@ -11,7 +11,7 @@ body{
     justify-content: space-between;
   }
 
-  h1, h2, h3, h4, h5, h6, span{
+  h1, h2, h3, h4, h5, h6, span, P{
     font-family: var(--font-primary);
     color: var(--color-white);
   }
@@ -197,34 +197,14 @@ color:#d07e26;
   border-width: 4px;
 }
 
-#userName .rules{
-
+.rulesIntro{
+  font-size: 1.7rem;
+  font-weight: 900;
 }
 
-/*--------------------------------------------------------------
-# rules
---------------------------------------------------------------*/
-#rules{
-  margin-top: 100px;
-  position:absolute;
-  z-index: 2;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  width: 28vw;
-}
-
-#rules img{
-  width: 10vw;
-  height: 15vh;
-  margin: 30px 0;
-}
-
-#rules div{
-  width: 100vw;
-  padding: 100px 0px;
-  background-color: red;
+.rulesIntro i:hover{
+  font-size: 3rem;
+  color: #f7d000;
 }
 
 /*--------------------------------------------------------------
@@ -335,8 +315,6 @@ color:#d07e26;
   box-shadow: 0px 0px 30px 10px blue ;
 }
 
-
-
 .btnGameBckGrnd{
   position: absolute; /* Al hacer que el elemento se coloque respecto a su contenedor, 
                           y el contenedor estar config para estar centrado, queda en el medio.*/
@@ -383,6 +361,21 @@ color:#d07e26;
   box-shadow: 0px 0px 200px 20px #b786f8;
 }
 
+/*--------------------------------------------------------------
+# points
+--------------------------------------------------------------*/
+#pointsScore{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: var(--color-primary-dark);
+
+  z-index: 0;
+  width: 100vw;
+  height: 50vh;
+}
 
 /*--------------------------------------------------------------
 # footer

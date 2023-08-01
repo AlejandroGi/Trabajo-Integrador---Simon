@@ -20,7 +20,7 @@ function validateName(){
             acum++;
         }
     }
-    if(acum != nameInput.value.length){
+    if (acum != nameInput.value.length){
         errorMsg= "The Name cannot contain numbers or special characters. ";
     }else{
         if(nameInput.value.length < 6){
@@ -46,7 +46,7 @@ function validateSurname(){
             acum++;
         }
     }
-    if(acum != surnameInput.value.length){
+    if (acum != surnameInput.value.length){
         errorMsg= "The Last Name cannot contain numbers or special characters. ";
     }else{
         if(surnameInput.value.length < 6){
@@ -66,10 +66,10 @@ emailInput.addEventListener('focus',clearWarningInput);
 function validateEmail(){
     var errorMsg="";
 
-    if(email.value.search(/[@]/) < 0){ 
+    if (email.value.search(/[@]/) < 0){ 
         errorMsg = errorMsg + " The email format must contain '@'. ";
     } 
-    if(email.value.search(/[.]/) < 0){ 
+    if (email.value.search(/[.]/) < 0){ 
         errorMsg = errorMsg + " The email format must contain '.'. ";
     } 
     document.getElementById('error-email').innerText= errorMsg;
@@ -84,7 +84,7 @@ messageInput.addEventListener('focus',clearWarningInput);
 function validateMessage(){
     var errorMsg="";
 
-    if(message.value.length == 0){
+    if (message.value.length == 0){
         errorMsg= "The message is empty!"
     }
     document.getElementById('error-message').innerText= errorMsg;
@@ -118,10 +118,14 @@ function checkInputs(){
         }
     }
 
-    if(flagErrorEmpty && flagErrorInputEmpty){
-        alert(nameInput.value + surnameInput.value + emailInput.value + messageInput.value);
+    if (flagErrorEmpty && flagErrorInputEmpty){
+        var subject = 'LPPA 2023 - SIMON GAME';
+        var body = `Hola ${nameInput.value} ${surnameInput.value} !
+                    \n${messageInput.value}.`;
+        var mailToLink = `mailto:${emailInput.value}?subject=${encodeURIComponent(subject)}
+                          &body=${encodeURIComponent(body)}`;
+        window.location.href = mailToLink;
 
-        console.log("mandar mail");
     }else{
         if(!flagErrorInputEmpty){
             alert('You must complete all the inputs');
@@ -133,7 +137,5 @@ function checkInputs(){
         }
     } 
     allMsgErrorString= "";
-
-
 }
 

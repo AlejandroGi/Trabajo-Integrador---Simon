@@ -59,7 +59,7 @@
                     </a>
                 </div>
                 <div>
-                    <a href="" target="_blank" class="rules">
+                    <a href="rules.html" target="_blank" class="rules">
                         <i class="fa fa-book"></i>
                         <span>Rules</span>
                     </a>
@@ -71,9 +71,8 @@
         
     <section id="boxName" class="boxName">
         <div>
-            <a href="" target="_blank" class="rules">
+            <a href="rules.html" target="_blank" class="rulesIntro">
                 <i class="fa fa-book"></i>
-                <span>Rules</span>
             </a>
         </div>
         <div class="titleTop">
@@ -84,30 +83,6 @@
         <form id="inputsForm" action="" class="inputsForm">
             <input type="text" name="userName" id="userName" placeholder="USER"></input>  
         </form>
-      
-    </section>
-
-    <section id="rules" class="rules">
-        <img src="imgs/Da_Rules.png"/>
-        <p> 1. El jugador tiene que identificarse con un nombre mayor a 3 letras!</p>
-        <p>
-            2. Por cada ronda superada, el jugardor obtiene mas tiempo.
-            Con la siguiente formula: Tiempo Inicial + proximo nivel*2. Tiempo Inicial: 5s.
-            Nivel 1: Tiempo Inicial + 2*2.
-            Nivel 2: Tiempo Inicial + 3*2.
-            Nivel 3: Tiempo Inicial + 4*2.
-        </p>
-        <p>
-            El tiempo de la ronda anterior NO se acumula para la siguiente ronda.
-        </p>
-        <p>
-            Si pasa la mitad del tiempo de la ronda, el jugador pierde 1 punto cada 2 segundos. Ej:
-            Nivel 1: Timpo de la ronda: 5s. Tiempo que inicio a perder puntos: 3s. Al restar 1 segundo de la ronda, perdi 1 puntos.
-            Nivel 3: Tiempo de la ronda: 12s. Tiempo que inicio a perder puntos: 6s. Al restar 4 segundo de la ronda, perdi 1 puntos. Al restar 2 segundos de la ronda, perdi 2 puntos.
-        </p>
-        <p>
-            ¡La partida puede terminar con puntaje negativo!
-        </p>
     </section>
 
     <section id="alingBox" clas="alingBox">
@@ -128,6 +103,17 @@
         </section>
     </section>
 
+    <section id="pointsScore" class="pointsScore">
+        <div class="titleTop">
+            <h2 id="nameStorage" class= nameStorage>WELCOME USER</h2>
+            <h2 id="levelStorage" class= levelStorage>WELCOME USER</h2>
+            <h2 id="pointsStorage" class= pointsStorage>WELCOME USER</h2>
+            <h2 id="statusStorage" class= statusStorage>WELCOME USER</h2>
+        </div>
+    </section>
+
+
+
     <footer id="footer">
         <div id="footLeft">
             <a href="https://github.com/AlejandroGi/Trabajo-Integrador---Simon" target="_blank" ><i class="fa fa-github"></i> Gigena Alejandro</a>
@@ -136,8 +122,8 @@
             <h3>LPPA</h3>
             <h3>2023</h3>
         </div>
-
     </footer>
+
     <script src="dom.js"></script>
 
 </body>

@@ -64,6 +64,7 @@ var timerIteration= 5000;
 var timeRemainGame = 5;
 var position= 0;
 var timer;
+var flagUse0=false;
 
 var btnGame= document.getElementById('btnGame');
 btnGame.addEventListener('click',gameRound);
@@ -126,11 +127,13 @@ function updateRound(){
     console.log("/---------------updateRound-------------/");
     document.getElementById('lvl').innerText = ++level;
     document.getElementById('infoTimer').style.borderColor= "";
-    timeRemainGame= 5 + (level*2 + 1);/*El +1 para que se vea el 10 en el timer*/
+    timeRemainGame= 5 + (level*2);
     timerIteration= timeRemainGame*1000 + (level*2*1000);
     position= 0;
     secHuman.length= 0;
     
+    flagUse0=false; /*Esto es para asegurarme que tras hacer update, utilice el 0*/
+
     resetCountdown(timer);
 }
 
@@ -171,7 +174,6 @@ function checkSequencesClick(){
             reason= "Sequence error!";
             gameOver(reason);
         }else{
-            clearInterval(timer); 
             console.log("/-----------------checkStatus FALSE----------/");
             console.log("posicion: " + position);
             console.log("checkSequencesClick -- secGameCadena:" + secGame);
@@ -182,19 +184,11 @@ function checkSequencesClick(){
             
             document.getElementById('points').innerText= ++points;
         }
-
-        var flagUse0;
-
-        if (position < 1){
-            flagUse0=false;
-        }else{
-            flagUse0=true; /*Desp del update*/
-        }
-
-        if (position == 0 && flagUse0){
-            console.log("checkSequencesClick - position: " + position);
+       
+        if (flagUse0){
             position++;
-            console.log("checkSequencesClick - position: " + position);
+        }else{
+            flagUse0=true;
         }
     }
 }
@@ -231,7 +225,57 @@ function resetCountdown(){
     clearInterval(timer);
     document.getElementById('timerNumber').innerText= "-";
 }
+/*********************************************************** */
 
+// Guardar en localstorage
+var saveScoreLocalStorage = function (gameScore) {
+
+    var scoreList = getScoreFromLocalStorage();
+    scoreList.push(Object.fromEntries(gameScore));
+
+    // Ordenar el arreglo de puntajes por el valor de "puntaje_final" de forma descendente
+    scoreList.sort(function (a, b) {
+        return b.puntaje_final - a.puntaje_final;
+    });
+
+    localStorage.setItem("puntajes", JSON.stringify(scoreList))
+
+}
+
+// Función para obtener la fecha
+function currentDate(){
+    
+    // This arrangement can be altered based on how we want the date's format to appear.
+    var currentDateValue= `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+    return currentDateValue;
+}
+
+// Función para obtener la lista de puntajes del localStorage
+function getScoreFromLocalStorage(){
+    var scoreString= localStorage.getItem("Points");
+    if (!scoreString) {
+        return [];
+    }
+    return JSON.parse(scoreString);
+}
+
+JSON.roles.MOD.forEach(function(item) {
+    console.log(item.join());
+});
+
+
+
+function saveLocalStorage(){
+    var localStorageItem;
+    localStorageItem.setItem('User',userName.value);
+    localStorageItem.setItem('Level',level);
+    localStorageItem.setItem('Points',points);
+    localStorageItem.setItem('Status',reason);
+    localStorageItem.setItem('Date',currentDate());
+    return localStorageItem;
+}
+
+/*********************************************************** */
 function gameOver(reason){
     document.getElementById('status').innerText= reason;
     
@@ -246,6 +290,7 @@ function gameOver(reason){
     console.log(reason);
 
     resetCountdown();
+    saveLocalStorage();
 }
 
 
