@@ -5,7 +5,6 @@ function clearWarningInput(){
     this.nextElementSibling.innerText= "";
 }
 
-
 /*----------------------------VALIDATE NAME-----------------------------*/
 var nameInput = document.getElementById('name');
 nameInput.addEventListener('blur',validateName);

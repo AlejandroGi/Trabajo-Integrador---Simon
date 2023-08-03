@@ -19,7 +19,7 @@
         </section>
         
         <section id="info" class="info">
-            <section class="infoGame">
+            <div class="infoGame">
                 <div>
                     <span>Player: </span>
                     <span id="player">-</span>
@@ -36,39 +36,38 @@
                     <span>Points: </span>
                     <span id="points">-</span>
                 </div>
-            </section>
+            </div>
             
-            <section id="infoTimer" class="infoTimer">
+            <div id="infoTimer" class="infoTimer">
                 <div>
                     <h2 id="timerTitle">TIMER</h2>
                     <h2 id="timerNumber">-</h2>
                 </div>
-            </section>
+            </div>
 
-            <section class="infoScore">
+            <div class="infoScore">
                 <div>
-                    <a class="btnContact" href="contact.html" target="_blank">
+                    <a href="contact.html" target="_blank" class="btnContact">
                         <i class="fa fa-envelope"></i>
                         <span>Contact</span>
                     </a>
                 </div>
                 <div>
-                    <a class="btnTopPlayers">
+                    <a id="topPlayers" class="topPlayers" >
                         <i class="fa fa-trophy"></i>
                         <span>TOP</span>
                     </a>
                 </div>
                 <div>
-                    <a href="rules.html" target="_blank" class="rules">
+                    <a href="rules.html" target="_blank">
                         <i class="fa fa-book"></i>
                         <span>Rules</span>
                     </a>
                 </div>
-            </section>
+            </div>
         </section>
     </header>
 
-        
     <section id="boxName" class="boxName">
         <div>
             <a href="rules.html" target="_blank" class="rulesIntro">
@@ -80,14 +79,14 @@
             <h2 id="titleUser" class= titleUser>WELCOME USER</h2>
             <i class="fa fa-user-o"></i>
         </div>
-        <form id="inputsForm" action="" class="inputsForm">
+        <form id="inputsForm" class="inputsForm">
             <input type="text" name="userName" id="userName" placeholder="USER"></input>  
         </form>
     </section>
 
     <section id="alingBox" clas="alingBox">
-        <section id="boxGame" class="boxGame">
-            <section class="buttonsBox">
+        <div id="boxGame" class="boxGame">
+            <div class="buttonsBox">
                 <div class= "blockBtnSup">
                     <button id="btnYellow" class="btn btnYellow btnGlowYellow"></button>
                     <button id="btnRed" class="btn btnRed btnGlowRed"></button>
@@ -99,8 +98,8 @@
                 <div class= "btnGameBckGrnd">
                     <button id="btnGame" class="btn btnGame btnGameBckGrnd">--</button>
                 </div>
-            </section>
-        </section>
+            </div>
+        </div>
     </section>
 
     <section id="pointsScore" class="pointsScore">
@@ -111,8 +110,6 @@
             <h2 id="statusStorage" class= statusStorage>WELCOME USER</h2>
         </div>
     </section>
-
-
 
     <footer id="footer">
         <div id="footLeft">
@@ -125,7 +122,6 @@
     </footer>
 
     <script src="dom.js"></script>
-
 </body>
 </html>
 

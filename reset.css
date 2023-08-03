@@ -7,11 +7,13 @@
 
     /* Colores */
     --color-white: #e0f1f2;
+    --color-black: #000000;
 
     --color-dark-light: #140f2c;
     --color-dark: #0e0f14;
     
-    --color-black: #000000;
+    --color-ore: #f7d000;
+    --color-grey: rgb(102, 102, 102);
     
     --color-links: #0ea2bd;
     --color-links-hover: #1ec3e0;
@@ -23,6 +25,7 @@
     --color-secondary: #485664;
     --color-secondary-light: #8f9fae;
     --color-secondary-dark: #3a4753;
+    --color-grey: grey;
   }
     
   /* (Opcional) Las adaptamos al modo oscuro */
@@ -142,7 +145,6 @@
     font-family : var(--tipo-principal);
     color       : var(--negro);
     /* (Opcional) */ hyphens: auto;
-    /* (Opcional) */ font-smooth: always;
     /* (Opcional) */ -webkit-font-smoothing: antialiased;
     /* (Opcional) */ -moz-osx-font-smoothing: grayscale;
   }
