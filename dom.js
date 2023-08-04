@@ -8,8 +8,7 @@ userName.addEventListener('focus',resetTitleBorder);
 var nameTitle= document.getElementById('titleUser');
 var boxName= document.getElementById('boxName');
 var player= document.getElementById('player');
-var op= false;
-
+var acumUserNameLetter= 0;
 /*----------------Resetea el color del borde del titulo----------------*/
 function resetTitleBorder(){
     userName.style.borderColor= "";
@@ -17,7 +16,7 @@ function resetTitleBorder(){
 
 /*----------------Cambia el color del btn principal del juego----------------*/
 function changeBtnGameColor(){
-    if (userName.value.length > 3){
+    if (userName.value.length > 3 && (acumUserNameLetterFun() == userName.value.length)){
         btnGame.style.backgroundColor= "var(--color-primary-light)";
         btnGame.style.borderColor= "var(--color-white)";
         btnGame.style.boxShadow= "";
@@ -34,18 +33,30 @@ function changeBtnGameColor(){
 
 /*----------------Cambia el titulo acorde a lo ingresado----------------*/
 function changeTitle(){
-    nameTitle.innerText = 'WELCOME ' + userName.value;
+    nameTitle.innerText= 'WELCOME ' + userName.value;
     if (userName.value.length == 0){
-        nameTitle.innerText = 'WELCOME USER';
+        nameTitle.innerText= 'WELCOME USER';
     }
     changeBtnGameColor();
 }
 
+/*----------------Comprueba la cantidad de letras del nombre----------------*/
+function acumUserNameLetterFun(){
+    acumUserNameLetter= 0;
+    for (x= 0; x <= userName.value.length; x++){
+        if(userName.value.charAt(x).toLowerCase().search(/[a-z]/) >= 0){ 
+            acumUserNameLetter++;
+        }
+    }
+    return acumUserNameLetter;
+}
+
 /*----------------Comprueba el usuario ingresado----------------*/
 function validateUser(){
-    if (userName.value.length > 3){
+  
+    if (userName.value.length > 3 && (acumUserNameLetterFun() == userName.value.length) ){
         player.innerText= userName.value;
-        return true; 
+        return true;
     }else{
         return false;
     }
