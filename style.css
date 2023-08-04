@@ -117,27 +117,6 @@ a{
 .infoScore{
   cursor: pointer;
 }
-/*
-.infoScore .bestPlayer{
-color:var(--color-white);
-
-border-style:double;
-border-color: var(--color-white);
-border-radius: 5px;
-border-width: 1px;
-
-background-color:#eeca00 ;
-
-box-shadow: 0px 0px 10px 2px #f7d000; /* desp.X, desp.Y, tamño. desenfoq, dispersion*/
-/*}
-
-#secondPlayer{
-color:#c5c3c3;
-}
-#thirdPlayer{
-color:#d07e26;
-}*/
-
 
 /*--------------------------------------------------------------
 # boxName
@@ -155,7 +134,7 @@ color:#d07e26;
 }
 
 .titleTop{
-  display: flex;
+  display:flex;
   flex-flow: row nowrap;
   align-items: center;
 }
@@ -205,7 +184,7 @@ color:#d07e26;
 
 
 /*--------------------------------------------------------------
-# boxGame
+# alingBox
 --------------------------------------------------------------*/
 #alingBox{
   display: flex;
@@ -353,6 +332,12 @@ color:#d07e26;
   border-width: 1rem;
 }
 
+.pointsScoreH2{
+  padding: 0px 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 
 /*--------------------------------------------------------------
 # footer
@@ -365,6 +350,7 @@ color:#d07e26;
   background-color: var(--color-dark);
   padding: 4px 15px;
 }
+
 #footLeft{
   display: flex;
   flex-flow: row nowrap;

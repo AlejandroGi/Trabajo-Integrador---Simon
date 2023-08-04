@@ -26,7 +26,7 @@ function changeBtnGameColor(){
     }else{
         btnGame.style.backgroundColor= ""
         btnGame.style.borderColor= "red";
-        btnGame.style.boxShadow="none";
+        btnGame.style.boxShadow= "none";
         btnGame.style.color= "red";
         btnGame.innerText= "--";
     }
@@ -63,11 +63,31 @@ pointsScoreBox.addEventListener('click',openPointsScoreBox);
 
 function openPointsScoreBox(){
     pointsScore.style.display= "flex";
+    if (option){
+        document.getElementById('nameStorage').style.display= "none";
+        document.getElementById('levelStorage').style.display= "none";
+        document.getElementById('pointsStorage').style.display= "none";
+        document.getElementById('statusStorage').innerText= "GAME OVER";
+        option= false;
+    }else{
+        document.getElementById('nameStorage').style.display= "flex";
+        document.getElementById('levelStorage').style.display= "flex";
+        document.getElementById('pointsStorage').style.display= "flex";
+        document.getElementById('statusStorage').innerText= "status";
+    }
 }
 
 function closePointsScoreBox(){
     pointsScore.style.display= "";
 }
+
+
+/*--------------------------------------------------------------
+# gameOverModal -- Utiliza el mismo fragmento html que el pointsScore
+--------------------------------------------------------------*/
+function launchModalGameOver(){
+    openPointsScoreBox();
+}   
 
 
 /*--------------------------------------------------------------
@@ -78,11 +98,12 @@ var secGame= [];
 var secHuman= [];
 var level= 1;
 var points= 0;
-var reason="";
+var reason= "";
 var timeRemainGame= 5;
 var position= 0;
 var timer;
 var flagUse0= false;
+var option= false;
 
 var btnGame= document.getElementById('btnGame');
 btnGame.addEventListener('click',gameRound);
@@ -104,6 +125,7 @@ var infoTimerBoxFront= document.getElementById('infoTimer');
 var pointsFront= document.getElementById('points');
 var timerNumberFront= document.getElementById('timerNumber');
 var statusFront= document.getElementById('status'); 
+
 /*----------------Prendo y apago el brillo de los colores----------------*/
 function colorBtnSecGlow(number){
     switch(number){
@@ -134,9 +156,6 @@ function colorBtnSecGlow(number){
         default: console.log("colorBtnSecGlow - Salida por default");
     }
 }
-
-
-
 
 /*----------------Actualizo la ronda----------------*/
 function updateRound(){
@@ -267,6 +286,7 @@ function saveLocalStorage(){
 /*********************************************************** */
 /*----------------Termina la partida----------------*/
 function gameOver(reason){
+    option= true;
     statusFront.innerText= reason;
     infoTimerBoxFront.style.borderColor= "";
     btnGame.style.backgroundColor= '#be04ec';
@@ -275,8 +295,9 @@ function gameOver(reason){
     secHuman.length= 0;
     timeRemainGame= 5;
     position= 0;
-    reason="";
+    reason= "";
     resetCountdown();
+    launchModalGameOver();
     //saveLocalStorage();
 }
 
@@ -383,6 +404,7 @@ function gameRound(){
         if (checkStatus() == 'Playing'){
             resetGame();
         }else{
+            closePointsScoreBox();
             headerGame();
             playGame();
         }
