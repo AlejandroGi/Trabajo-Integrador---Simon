@@ -53,7 +53,6 @@ function acumUserNameLetterFun(){
 
 /*----------------Comprueba el usuario ingresado----------------*/
 function validateUser(){
-  
     if (userName.value.length > 3 && (acumUserNameLetterFun() == userName.value.length) ){
         player.innerText= userName.value;
         return true;

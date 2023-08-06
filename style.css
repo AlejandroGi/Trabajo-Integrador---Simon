@@ -21,7 +21,6 @@ a{
   color: var(--color-white);
 }
 
-
 /*--------------------------------------------------------------
 # header
 --------------------------------------------------------------*/
@@ -101,8 +100,11 @@ a{
   align-items: center;
 }
 
-.infoScore button{
-  font-weight: 800;
+.infoScore a{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: right;
+  align-items:flex-end;
 }
 
 .infoScore i{
@@ -116,6 +118,13 @@ a{
 
 .infoScore{
   cursor: pointer;
+}
+
+@media (max-width: 380px) and (min-width:300px){
+  .infoScore a{
+    flex-flow: row wrap;
+    margin: 5px 0px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -182,6 +191,11 @@ a{
   color: var(--color-ore);
 }
 
+@media (max-width: 380px) and (min-width:300px){
+  #boxName{
+    height: 38vh;
+  }
+}
 
 /*--------------------------------------------------------------
 # alingBox
@@ -312,6 +326,27 @@ a{
   box-shadow: 0px 0px 17px 5px var(--color-primary-light);
 }
 
+@media (max-width: 600px) and (min-width:300px){
+  #boxGame{
+    width: 80vw;
+    height: 80vw;
+  }
+
+  .btn{
+    width: 30vw;
+    height: 30vw;
+  }
+
+  .btnGameBckGrnd{
+    width: 35vw;
+    height: 35vw;
+  }
+
+  .btnGame{
+    width: 30vw;
+    height: 30vw;
+  }
+}
 
 /*--------------------------------------------------------------
 # pointsScore
@@ -321,9 +356,9 @@ a{
   z-index: 1;
   width: 100vw;
   height: 20vh;
-  margin-top: 18vh;
+  margin-top: 50vh;
   display: none;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -337,7 +372,6 @@ a{
   font-size: 1.1rem;
   font-weight: 600;
 }
-
 
 /*--------------------------------------------------------------
 # footer
