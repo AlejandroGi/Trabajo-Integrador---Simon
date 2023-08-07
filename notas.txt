@@ -1,5 +1,0 @@
-btnTopPlayers cambiarle el nombre para que sea una unica clase para los 3 css.
-Seguir viendo donde meto las reglas.
-
-Se rompio el corte el times up.
-purgar css
