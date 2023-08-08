@@ -2,20 +2,17 @@
 # general
 --------------------------------------------------------------*/
 body{
-  font-family:'Poppins','Source Sans Pro','Encode Sans','Arial','Roboto','Open Sans', sans-serif;
-  color: var(--color-white);
-  background-color: var(--color-dark);
-
   display: flex;
   flex-flow:column nowrap;
   justify-content: space-between;
+  background-color: var(--color-dark);
+  font-family:'Poppins','Source Sans Pro','Encode Sans','Arial','Roboto','Open Sans', sans-serif;
+  color: var(--color-white);
 }
-
 h1, h2, h3, h4, h5, h6, span, P{
   font-family: var(--font-primary);
   color: var(--color-white);
 }
-
 a{
   font-family: var(--font-primary);
   color: var(--color-white);
@@ -30,7 +27,6 @@ a{
   justify-content: center;
   align-items: center;
 }
-
 .banner{
   display: flex;
   flex-flow: column nowrap;
@@ -49,11 +45,11 @@ a{
   justify-content:space-between;
   align-items: center;
   padding: 10px 15px;
+  background-color: var(--color-dark-light);
   font-size: 1.3rem;
   font-weight: 800;
-  background-color: var(--color-dark-light);
-}
 
+}
 .infoGame{
   display:flex;
   flex-flow: column nowrap;
@@ -74,12 +70,10 @@ a{
   border-width: 5px;
   border-style:inset;
 }
-
 #infoTimer h2{
   text-align: center;
   letter-spacing: 0.2rem;
 }
-
 #title{
   font-size: 2.3rem;
   font-weight: 800;
@@ -93,29 +87,24 @@ a{
   align-items:end;
   width: 33%;
 }
-
 .infoScore div{
   display:flex;
   flex-flow: row nowrap;
   align-items: center;
 }
-
 .infoScore a{
   display: flex;
   flex-flow: row nowrap;
   justify-content: right;
   align-items:flex-end;
 }
-
 .infoScore i{
   margin: 5px 10px;
 }
-
 .infoScore li{
   display: inline;
   padding: 0px 5px;
 }
-
 .infoScore{
   cursor: pointer;
 }
@@ -132,65 +121,56 @@ a{
 --------------------------------------------------------------*/
 #boxName{
   position:absolute;
-  width: 100vw;
-  height: 26vh;
-  z-index: 1;
   display: flex;
   flex-flow: column nowrap;
   justify-content:space-evenly;
   align-items: center;
+  width: 100vw;
+  height: 26vh;
+  z-index: 1;
   background-color: var(--color-dark-light);
 }
-
 .titleTop{
   display:flex;
   flex-flow: row nowrap;
   align-items: center;
 }
-
 .titleTop i{
   font-size: 2rem;
   font-weight: 900;
   margin: 0 20px;
 }
-
 .titleTop .titleUser{
   font-size: 2rem;
   font-weight: 900;
 }
-
 #inputsForm{
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
-
 #inputsForm input{
-  font-size: 1.3rem;
-  color: var(--color-primary-dark);
-  background-color: var(--color-white);
   border-radius: 100px;
   padding: 5px 0px;
+  background-color: var(--color-white);
+  font-size: 1.3rem;
+  color: var(--color-primary-dark);
 }
-
 #userName{
-  text-align: center;
   border-color: var(--color-white);
   border-style: solid;
   border-width: 4px;
+  text-align: center;
 }
-
 .rulesIntro{
   font-size: 1.7rem;
   font-weight: 900;
 }
-
 .rulesIntro i:hover{
   font-size: 3rem;
   color: var(--color-ore);
 }
-
 @media (max-width: 380px) and (min-width:300px){
   #boxName{
     height: 38vh;
@@ -220,20 +200,17 @@ a{
   border-radius: 50%;
   background-color: var(--color-black);
 }
-
 .buttonsBox{
   display: flex;
   flex-flow: row wrap;
   justify-content:center;
   align-items: center;
 }
-
 .blockBtnSup{
   display: flex;
   flex-flow: row nowrap;
   align-items:flex-end;
   margin-bottom: 1vw;
-  
 }
 .blockBtnInf{
   display: flex;
@@ -241,11 +218,9 @@ a{
   align-items:flex-start;
   margin-top: 1vw;
 }
-
 .btn{
   width: 22vw;
   height: 22vw;
-  /*border-radius: 0 0 0 0;*/ /*marca el corte del cuadrado*/
   color: var(--color-white);
   font-size: 1.3rem;
   font-weight: 600;
@@ -253,27 +228,22 @@ a{
   max-width: 22vh;
   max-height: 22vh;
 }
-
 .btnGreen{
   background-color: green;
   border-radius: 0  0 22vh 0 ;
   margin-left: 1vw;
 }
-
 .btnGlowGreen:active{
   box-shadow:  0px 0px 30px 10px green ;
 }
-
 .btnRed{
   background-color: red;
   border-radius: 0 22vh 0 0;
   margin-left: 1vw;
 }
-
 .btnGlowRed:active{
   box-shadow:  0px 0px 30px 10px red ;
 }
-
 .btnYellow{
   background-color: yellow;
   border-radius: 22vh 0 0 0;
@@ -282,20 +252,16 @@ a{
 .btnGlowYellow:active{
   box-shadow:  0px 0px 30px 10px yellow ;
 }
-
 .btnBlue{
   background-color: blue;
   border-radius: 0 0 0 22vh ;
   margin-right: 1vw;
 }
-
 .btnGlowBlue:active{
   box-shadow: 0px 0px 30px 10px blue ;
 }
-
 .btnGameBckGrnd{
-  position: absolute; /* Al hacer que el elemento se coloque respecto a su contenedor, 
-                          y el contenedor estar config para estar centrado, queda en el medio.*/
+  position: absolute; /* Al hacer que el elemento se coloque respecto a su contenedor, y el contenedor estar config para estar centrado, queda en el medio.*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -306,7 +272,6 @@ a{
   border-radius: 50%;
   background-color:var(--color-black);
 }
-
 .btnGame{
   display:flex;
   align-items: center;
@@ -318,7 +283,6 @@ a{
   border-radius: 100%;
   background-color:var(--color-grey);
 }
-
 .btnGame:hover{
   border-color: var(--color-grey);
   border-style:double;
@@ -331,17 +295,14 @@ a{
     width: 80vw;
     height: 80vw;
   }
-
   .btn{
     width: 30vw;
     height: 30vw;
   }
-
   .btnGameBckGrnd{
     width: 35vw;
     height: 35vw;
   }
-
   .btnGame{
     width: 30vw;
     height: 30vw;
@@ -353,20 +314,19 @@ a{
 --------------------------------------------------------------*/
 #pointsScore{
   position:absolute;
-  z-index: 1;
-  width: 100vw;
-  height: 20vh;
-  margin-top: 50vh;
   display: none;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
-  background-color: var(--color-primary-dark);
   border-style: double;
   border-width: 1rem;
+  z-index: 1;
+  width: 100vw;
+  height: 20vh;
+  margin-top: 50vh;
+  background-color: var(--color-primary-dark);
 }
-
 .pointsScoreH2{
   padding: 0px 10px;
   font-size: 1.1rem;
@@ -381,24 +341,20 @@ a{
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-dark);
   padding: 4px 15px;
+  background-color: var(--color-dark);
 }
-
 #footLeft{
   display: flex;
   flex-flow: row nowrap;
 }
-
 #footLeft a,i{
   color: var(--color-white);
 }
-
 #footRight{
   display: flex;
   flex-flow: row nowrap;
 }
-
 #footRight h3{
   padding: 0px 5px;
 }
