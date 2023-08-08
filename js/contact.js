@@ -1,9 +1,11 @@
+'use strict';
+
 var allMsgError= document.getElementsByClassName('error');
 var errorFront= document.getElementById('error-name').innerHTML;
 
 /*----------------------------Limpia el input-----------------------------*/
 function clearWarningInput(){
-    this.nextElementSibling.innerText= "";
+    this.nextElementSibling.innerText= '';
 }
 
 /*----------------------------Valida el name-----------------------------*/
@@ -13,18 +15,18 @@ nameInput.addEventListener('focus',clearWarningInput);
 
 function validateName(){
     var acum= 0;  
-    var errorMsg= "";
+    var errorMsg= '';
 
-    for (x=0; x <= nameInput.value.length; x++){
+    for (var x=0; x <= nameInput.value.length; x++){
         if(nameInput.value.charAt(x).toLowerCase().search(/[a-z]/) >= 0){ 
             acum++;
         }
     }
-    if (acum != nameInput.value.length){
-        errorMsg= "The Name cannot contain numbers or special characters. ";
+    if (acum !== nameInput.value.length){
+        errorMsg= 'The Name cannot contain numbers or special characters. ';
     }else{
         if(nameInput.value.length < 6){
-            errorMsg= errorMsg + "The Name has less than 6 alphabetic characters. ";
+            errorMsg= errorMsg + 'The Name has less than 6 alphabetic characters. ';
         }
     }
     errorFront= errorMsg;
@@ -38,18 +40,18 @@ surnameInput.addEventListener('focus',clearWarningInput);
 
 function validateSurname(){
     var acum= 0;  
-    var errorMsg= "";
+    var errorMsg= '';
 
-    for (x= 0; x <= surnameInput.value.length; x++){
+    for (var x= 0; x <= surnameInput.value.length; x++){
         if(surnameInput.value.charAt(x).toLowerCase().search(/[a-z]/) >= 0){ 
             acum++;
         }
     }
-    if (acum != surnameInput.value.length){
-        errorMsg= "The Last Name cannot contain numbers or special characters. ";
+    if (acum !== surnameInput.value.length){
+        errorMsg= 'The Last Name cannot contain numbers or special characters. ';
     }else{
         if(surnameInput.value.length < 6){
-            errorMsg= errorMsg + "The Last Name has less than 6 alphabetic characters. ";
+            errorMsg= errorMsg + 'The Last Name has less than 6 alphabetic characters. ';
         }
     }
     errorFront= errorMsg;
@@ -62,13 +64,13 @@ emailInput.addEventListener('blur',validateEmail);
 emailInput.addEventListener('focus',clearWarningInput);
 
 function validateEmail(){
-    var errorMsg= "";
+    var errorMsg= '';
 
     if (email.value.search(/[@]/) < 0){ 
-        errorMsg= errorMsg + " The email format must contain '@'. ";
+        errorMsg= errorMsg + ' The email format must contain "@". ';
     } 
     if (email.value.search(/[.]/) < 0){ 
-        errorMsg= errorMsg + " The email format must contain '.'. ";
+        errorMsg= errorMsg + ' The email format must contain ".". ';
     } 
     errorFront= errorMsg;
 }
@@ -79,10 +81,10 @@ messageInput.addEventListener('blur',validateMessage);
 messageInput.addEventListener('focus',clearWarningInput);
 
 function validateMessage(){
-    var errorMsg= "";
+    var errorMsg= '';
 
-    if (message.value.length == 0){
-        errorMsg= "The message is empty!"
+    if (message.value.length === 0){
+        errorMsg= 'The message is empty!'
     }
     errorFront= errorMsg;
 
@@ -99,14 +101,14 @@ function checkInputs(){
     var allInputs= [];
     
     allMsgError= document.getElementsByClassName('error');
-    for (x= 0; x < allMsgError.length; x++){
-        if(allMsgError[x].innerText != ''){
+    for (var x= 0; x < allMsgError.length; x++){
+        if(allMsgError[x].innerText !== ''){
             flagErrorEmpty= false; //Si encuentra un error -> Falso
         }
     }
     allInputs= document.querySelectorAll('form input');
-    for (x= 0; x < allInputs.length; x++){
-        if(allInputs[x].value == '') { 
+    for (var x= 0; x < allInputs.length; x++){
+        if(allInputs[x].value === '') { 
             flagErrorInputEmpty= false; //Si encuentra un campo vacio ->Falso
         }
     }
@@ -127,5 +129,5 @@ function checkInputs(){
             alert(allMsgErrorString);
         }
     }
-    allMsgErrorString= "";
+    allMsgErrorString= '';
 }
