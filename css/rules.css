@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 # rules
 --------------------------------------------------------------*/
-#rules{
+.rules{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
@@ -9,20 +9,20 @@
     background-color: var(--color-dark-light);
     height: 100vh;
 }
-#rules img{
+.rules img{
     width: 23vw;
     height: 26vw;
 }
-#rules div{
+.rules div{
     display: flex;
     flex-flow: column nowrap;
-    justify-content: stretch;
+    justify-content: center;
     align-items:flex-start;
     width: 40vw;
 }
-#rules p{
+.textRules div{
     margin: 15px 0px; 
-    text-align: justify;
+    text-align: left;
     font-size: 1.2rem;
     font-weight: 600;
     font-family: var(--font-primary);
